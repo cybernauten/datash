@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do 
-    resources :connections, only:[:index :show]
+    resources :connections, only:[:index, :show]
   end
   resources :users do
-    resources :documents, only:[:index :show :create :destroy :edit ]
+    resources :documents, only:[:index, :show, :create, :destroy, :edit ]
   end
 end
