@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :teams, except:[:destroy] do
-    resources :connections, only:[:create, :update]
     resources :linkedConnections, only:[:create, :update]
+    resources :cooperations, only:[:create, :update]
   end
 
   resources :projects do
