@@ -7,11 +7,15 @@ Rails.application.routes.draw do
     # resources :documents # is it possible to do everything with the documents?
   end
   resources :users do
-    resources :documents, only:[:index, :show, :create, :destroy, :edit ]
+    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
   end
 
   resources :teams, except:[:destroy] do
     resources :connections, only:[:create, :update]
     resources :cooperations, only:[:create, :update]
   end
+
+  resources :projects do
+    resources :cooperations, only:[:create, :update]
+    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
 end
