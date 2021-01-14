@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :cooperations, only:[:create, :update]
+    # resources :cooperations, only:[:create, :update]
     resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
   end
 end

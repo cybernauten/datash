@@ -1,4 +1,4 @@
-class LinkedConnectionsController < ApplicationController
+class LinkedconnectionsController < ApplicationController
   def index
   end
 
