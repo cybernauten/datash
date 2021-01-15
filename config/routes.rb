@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
+    # why is user not together?
   end
 
   resources :teams, except:[:destroy] do
