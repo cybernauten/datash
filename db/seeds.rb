@@ -17,3 +17,8 @@ project_two = Project.create!(project_name:'project_two', description: 'DSBAJBDF
 project_three = Project.create!(project_name:'project_three', description: 'il213543265436T54ies', creation_date: 'date')
 
 document_one = Document.create!(file_name:'document_one', file_type: '.pdf', creation_date: "date", file_size: 'size')
+
+document_two = Document.create!(file_name:'document_two', file_type: '.pdf', creation_date: "date", file_size: 'size')
+
+document_thre = Document.create!(file_name:'document_three', file_type: '.pdf', creation_date: "date", file_size: 'size')
+
