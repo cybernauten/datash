@@ -1,6 +1,9 @@
 .navbar {
   justify-content: space-between;
-  background: #161B23;
+  background: #30363D;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
 }
 
 .navbar .navbar-collapse {
