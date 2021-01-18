@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  include Pundit
-  
+
   def index
   end
 
