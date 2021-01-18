@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
+    @users = policy_scope(User)
   end
 
   def show
   end
 
-  def update
+  def edit
+    @user = current_user
+    authoriez @user
   end
 
-  def edit
+  def update
+    #@user = User.find
   end
 end
