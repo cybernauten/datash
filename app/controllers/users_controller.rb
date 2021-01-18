@@ -5,14 +5,12 @@ class UsersController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
-    @user = current_user
-    authoriez @user
+    @creator = User.find(params[:id])
   end
 
   def update
-    #@user = User.find
+  end
+
+  def edit
   end
 end

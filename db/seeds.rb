@@ -1,3 +1,8 @@
+Document.delete_all
+Project.delete_all
+Team.delete_all
+User.delete_all
+
 user_one = User.create!(email: 'soph2@example.com', user_name:'sophia', display_name: 'soph', password: '123456', avatar_url: "https://avatars0.githubusercontent.com/u/70213059?v=4.jpg")
 
 user_two = User.create!(email: 'anna2@example.com', user_name:'anna-maria', display_name: 'anna', password: '123456', avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601933188/aowdwrdop6xuksfrwhus.jpg" )
@@ -16,9 +21,8 @@ project_two = Project.create!(project_name:'project_two', description: 'DSBAJBDF
 
 project_three = Project.create!(project_name:'project_three', description: 'il213543265436T54ies', creation_date: 'date')
 
-document_one = Document.create!(file_name:'document_one', file_type: '.pdf', creation_date: "date", file_size: 'size')
+document_one = Document.create!(file_name:'document_one', file_type: '.pdf', creation_date: "date", file_size: '30', project_id: 2, user_id: 1)
 
-document_two = Document.create!(file_name:'document_two', file_type: '.pdf', creation_date: "date", file_size: 'size')
+document_two = Document.create!(file_name:'document_two', file_type: '.pdf', creation_date: "date", file_size: '30', project_id: 2, user_id: 2)
 
-document_thre = Document.create!(file_name:'document_three', file_type: '.pdf', creation_date: "date", file_size: 'size')
-
+document_three = Document.create!(file_name:'document_three', file_type: '.pdf', creation_date: "date", file_size: '30', project_id: 3, user_id: 3)
