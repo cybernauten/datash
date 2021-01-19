@@ -17,12 +17,3 @@ user_three = User.create!(email: 'ilies2@example.com', user_name:'ilies', displa
 team_three = Team.create!(team_name:'team_three', description: 'il213543265436T54ies', avatar_url: "https://avatars0.githubusercontent.com/u/68535384?v=4.jpg" )
 project_three = Project.create!(project_name:'project_three', description: 'il213543265436T54ies', creation_date: 'date')
 document_three = Document.create!(file_name:'document_three', file_type: '.pdf', creation_date: "date", file_size: '30', project_id: 3, user_id: 3)
-
-
-
-
-
-
-
-
-
