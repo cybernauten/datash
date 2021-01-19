@@ -4,9 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :teams, through: :linkedconnections
+  has_many :teams, through: :linked_connections
   has_many :documents
 
-  belongs_to :linkedconnection
-  has_many :linkedconnections
+  has_many :linked_connections
 end
