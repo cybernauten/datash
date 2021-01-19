@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
   end
 
   def update
@@ -18,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    
   end
 
 private
