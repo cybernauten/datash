@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  #before_action
+  #before_action :authorize
 
   def index
     @teams = policy_scope(Team)
@@ -11,9 +11,13 @@ class TeamsController < ApplicationController
   end
 
   def new
+    @user = current_user
+    @team = Team.new
+    #authorize @team
   end
 
   def create
+    authorize @team
   end
 
   def edit
@@ -26,4 +30,5 @@ class TeamsController < ApplicationController
 
   def team_params
     params.require(:team).permit(:team_name, :description, :avatar_url)
+  end
 end
