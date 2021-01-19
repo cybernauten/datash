@@ -13,6 +13,6 @@
     <li><a href="#recent">Recent</a></li>
     <li><%= link_to "Profile", "/users/#{current_user.id}/edit"%></li>
     <li><a href="#logout">Logout</a></li>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %> <!-- qick solution pleace remove for a better one -->
   </ul>
 </div>
