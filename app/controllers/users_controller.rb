@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @creator = User.find(params[id])
+    @linked_connection = LinkedConnection.where(team_id: params[:id])
   end
 
   def update
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    
+    authorize @user
   end
 
 private
