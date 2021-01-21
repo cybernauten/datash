@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @users = policy_scope(User)
+  #  @users = policy_scope(User)
   end
 
   def show
@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     @linked_connection = LinkedConnection.where(team_id: params[:id])
   end
 
-  def edit
-    authorize @user
-  end
+  # def edit
+  #   authorize @user
+  # end
 
   def update
     authorize @user
