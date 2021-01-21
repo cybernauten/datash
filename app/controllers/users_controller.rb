@@ -10,10 +10,6 @@ class UsersController < ApplicationController
     @linked_connection = LinkedConnection.where(team_id: params[:id])
   end
 
-  def update
-    authorize @user
-  end
-
   def edit
     authorize @user
   end
