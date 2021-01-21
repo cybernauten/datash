@@ -2,7 +2,7 @@
   <ul>
     <li>
       <h2><% @user = current_user %></h2>
-      <img class="dashboardimage" style="background-image: url('<%= @user.avatar_url %>'); width: 140px; height: 140px; border-radius: 50%; border: black 1px solid; margin-top: 66px; object-fit: cover !important;">
+      <img style="background-image: url('<%= @user.avatar_url %>'); width: 140px; height: 140px; border-radius: 50%; border: black 1px solid; margin-top: 66px; background-size: 100%;">
     </li>
     <li><a class="active" href="#dashboard"></a><h1>DASHBOARD</h1></li>
     <li><%= link_to "Teams", "/teams"%></li>
