@@ -6,9 +6,8 @@
   <div class="team-cards-container d-flex w-50">
     <% @teams.each do |team| %>
       <div class="card-team" style="width: 500px, height: 300px">
-        <div style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHRlYW18ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid;">
+        <div style="background-image: url('<%= team.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid;">
         </div>
-        <p><%= team.avatar_url %></p>
         <h3><%= team.team_name %></h3>
         <p>Description: <%= team.description %></p>
         <p>Card & text..</p>
