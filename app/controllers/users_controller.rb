@@ -11,12 +11,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
     authorize @user
   end
 
-  def update
-    authorize @user
-  end
+  # def update
+  #   authorize @user
+  # end
 
 private
 
