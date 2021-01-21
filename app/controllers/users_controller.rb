@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @creator = User.find(params[id])
+    @creator = User.find(params[:id])
     @linked_connection = LinkedConnection.where(team_id: params[:id])
   end
 
