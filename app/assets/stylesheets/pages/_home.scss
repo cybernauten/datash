@@ -1,1 +1,92 @@
 // Specific CSS for your home-page
+
+//DASHBOARD CSS
+body {
+  margin: 0;
+  background-color: #161B23;
+}
+
+h2 {
+  color: #3FB951;
+}
+
+p {
+  color: white;
+}
+
+h1 a {
+  text-decoration: none !important
+}
+
+h1 a:hover {
+  text-decoration: none;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #30363D;
+  color: white;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #30363D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: none;
+  color: #3FB951;
+  text-decoration: none;
+}
+
+
+ li > .dashboardimage > img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: black 1px solid;
+  margin-top: 66px;
+}
+
+.db-green {
+  color: #3FB951;
+}
+
+.db-dataSH-white {
+  color: white;
+}
+
+.db-dataSH-white:hover {
+  color: #378BFC;
+}
+
+.db-DATAsh-blue {
+  color: #378BFC;
+}
+
+.db-DATAsh-blue:hover {
+  color: white;
+}
+
+.db-purple {
+  color: #8A57E6;
+}
+
+.dashboard {
+
+}
+

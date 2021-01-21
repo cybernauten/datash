@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    authorize @user
   end
 
 private
