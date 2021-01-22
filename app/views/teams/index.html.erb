@@ -1,9 +1,18 @@
 <%= render "shared/dashboard" %>
-<div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h2>TEAMS</h2>
-  <p>This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
-  <p>Card & text..</p>
-  <p>Card & text..</p>
-  <p>Card & text..</p>
-  <p>Card & text..</p>
+<div style="margin-left:25%; padding:86px 28px; height:1000px;">
+  <div class ="view title d-flex w-100 justify-content-center">
+      <h2>TEAMS</h2>
+  </div>
+  <div class="team-cards-container d-flex w-50">
+    <% @teams.each do |team| %>
+      <div class="card-team" style="width: 500px, height: 300px">
+        <div style="background-image: url('<%= team.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid;">
+        </div>
+        <h3><%= team.team_name %></h3>
+        <p>Description: <%= team.description %></p>
+        <p>Card & text..</p>
+        <p>Card & text..</p>
+      </div>
+    <% end %>
+  </div>
 </div>
