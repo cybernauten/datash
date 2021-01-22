@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   def index
     #show all projects from current_user he has been assigned to
-    @projects = Project.all.where(Project.user_id == current_user.id)
+    users_projects = policy_scope(Assignment)
+    @projects = users_projects.where(user.id == current_user.id)
   end
 
   def show
