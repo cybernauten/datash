@@ -4,6 +4,9 @@
       <h2>TEAMS</h2>
   </div>
   <div class="team-cards-container d-flex w-50">
+    <% @lc.each do |lc| %>
+    <h3><%= lc.team_id %></h3>
+    <% end %>
     <% @teams.each do |team| %>
       <div class="card-team" style="width: 500px, height: 300px">
         <div style="background-image: url('<%= team.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid;">

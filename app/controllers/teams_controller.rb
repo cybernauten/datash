@@ -4,7 +4,18 @@ class TeamsController < ApplicationController
 
   def index
     @teams = policy_scope(Team)
+    @lc = LinkedConnection.where(user_id: current_user)
+    LinkedConnection.find(@lc[0].team_id)
   end
+
+#       # @teams = policy_scope(Team)
+#     #all_connections = policy_scope(LinkedConnection)
+#     @all_connections = LinkedConnection.where(user_id: current_user)
+#       Team.find(@all_connections[0].team_id)
+#   # .where(user_id: current_user)
+# # (run_id: params[:id])
+# # all_buds = policy_scope(BuddyConnection)
+# #     @buddies = all_buds.where(user_1_id: current_user) + all_buds.where(user_2_id: current_user)
 
   def show
     @team = Team.find(@team.user_id)
