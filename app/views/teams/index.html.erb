@@ -1,20 +1,16 @@
 <%= render "shared/dashboard" %>
 <div style="margin-left:25%; padding:86px 28px; height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
-      <h2>TEAMS</h2>
+    <h2>TEAMS</h2>
   </div>
   <div class="team-cards-container d-flex w-50">
     <% @lc.each do |lc| %>
-    <h3><%= lc.team_id %></h3>
-    <% end %>
-    <% @teams.each do |team| %>
       <div class="card-team" style="width: 500px, height: 300px">
-        <div style="background-image: url('<%= team.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid;">
-        </div>
-        <h3><%= team.team_name %></h3>
-        <p>Description: <%= team.description %></p>
-        <p>Card & text..</p>
-        <p>Card & text..</p>
+      <div style="background-image: url('<%= Team.where(id: lc.team_id)[0].avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid;">
+      </div>
+      <h3>team:<%= lc.team_id %></h3>
+      <h3><%= Team.where(id: lc.team_id)[0].team_name %></h3>
+      <p><%= Team.where(id: lc.team_id)[0].description %></p>
       </div>
     <% end %>
   </div>

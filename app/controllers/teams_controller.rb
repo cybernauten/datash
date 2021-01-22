@@ -5,7 +5,6 @@ class TeamsController < ApplicationController
   def index
     @teams = policy_scope(Team)
     @lc = LinkedConnection.where(user_id: current_user)
-    LinkedConnection.find(@lc[0].team_id)
   end
 
 #       # @teams = policy_scope(Team)
