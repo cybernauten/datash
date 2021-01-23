@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :linked_connections
   has_many :teams, through: :linked_connections
-  
+
   has_many :documents
 
   has_many :assignments
