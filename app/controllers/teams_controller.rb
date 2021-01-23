@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = policy_scope(Team)
+    @lc = LinkedConnection.where(user_id: current_user)
   end
 
   def show
