@@ -2,12 +2,12 @@
 
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
   <h2>PROJECTS</h2>
-  <%= @projects[0].project_name %>
-
-  
-  
-  <p>This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
-  <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-  <p>Card & text..</p>
-  <p>Card & text..</p>
+  <div class="team-cards-container d-flex w-50">
+    <% @user.projects.each do |project| %>
+        <div class="card-team">
+          <h3><%= project.project_name %></h3>
+          <p><%= project.description %></p>
+        </div>
+    <% end %>
+  </div>
 </div>

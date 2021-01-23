@@ -2,6 +2,7 @@ Document.delete_all
 Project.delete_all
 Team.delete_all
 User.delete_all
+Assignment.delete_all
 
 user_one = User.create!(email: 'soph2@example.com', user_name:'sophia', display_name: 'soph', password: '123456', avatar_url: "https://avatars0.githubusercontent.com/u/70213059?v=4.jpg")
 team_one = Team.create!(team_name:'team_one', description: 'marketing team', avatar_url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHRlYW18ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60")
@@ -22,3 +23,5 @@ document_three = Document.create!(file_name:'document_three', file_type: '.pdf',
 linked_connection_three = LinkedConnection.create!(user_id: user_three.id, team_id: team_three.id)
 
 assignment_one = Assignment.create(user_id: user_three.id, project_id: project_two.id)
+assignment_two = Assignment.create(user_id: user_two.id, project_id: project_three.id)
+assignment_three = Assignment.create(user_id: user_one.id, project_id: project_one.id)

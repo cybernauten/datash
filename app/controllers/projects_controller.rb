@@ -3,9 +3,8 @@ class ProjectsController < ApplicationController
   #before_action :authorize
 
   def index
-    @projects = policy_scope(Project)
     @user = current_user
-    @projects = @user.projects
+    @projects = policy_scope(Project)
   end
 
   def show
@@ -21,11 +20,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    #create a new project for the team 
+    #create a new project for the team
   end
 
   def create
-    #create a new project for the team 
+    #create a new project for the team
   end
 
   def destroy
