@@ -4,13 +4,12 @@
     <h2>TEAMS</h2>
   </div>
   <div class="team-cards-container d-flex w-50">
-    <% @lc.each do |lc| %>
+    <% @user.teams.each do |team| %>
       <div class="card-team">
-      <div style="background-image: url('<%= Team.where(id: lc.team_id)[0].avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid; margin: auto">
+      <div style="background-image: url('<%= team.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid; margin: auto">
       </div>
-      <h3><% lc.team_id %></h3>
-      <h3><%= Team.where(id: lc.team_id)[0].team_name %></h3>
-      <p><%= Team.where(id: lc.team_id)[0].description %></p>
+      <h3><%= team.team_name %></h3>
+      <p><%= team.description %></p>
       </div>
     <% end %>
   </div>
