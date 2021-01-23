@@ -20,3 +20,5 @@ team_three = Team.create!(team_name:'team_three', description: 'finance departme
 project_three = Project.create!(project_name:'project_three', description: 'finances 101', creation_date: 'date')
 document_three = Document.create!(file_name:'document_three', file_type: '.pdf', creation_date: "date", file_size: '30', project: project_three, user: user_three)
 linked_connection_three = LinkedConnection.create!(user_id: user_three.id, team_id: team_three.id)
+
+assignment_one = Assignment.create(user_id: user_three.id, project_id: project_two.id)

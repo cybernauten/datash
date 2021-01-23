@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :linkedconnections, only:[:index, :show]
     resources :documents # is it possible to do everything with the documents?
+    resources :assignments, only:[:index, :show]
   end
+
   resources :users do
     resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
     # why is user not together?
+    # why not new? -> question from Ilies :)
   end
 
   resources :teams, except:[:destroy] do
@@ -19,5 +22,10 @@ Rails.application.routes.draw do
   resources :projects do
     resources :cooperations, only:[:create, :update]
     resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
+    resources :assignments, only:[:create, :update]
   end
+
+  #resources :projects do
+  #  resources :assignments
+  # end
 end
