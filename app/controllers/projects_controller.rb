@@ -1,11 +1,15 @@
 class ProjectsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  #before_action :authorize
+
   def index
-    #show all projects from current_user he has been assigned to
-    @projects = Project.all.where(Project.user_id == current_user.id)
+    @projects = policy_scope(Project)
+    @user = current_user
+    @projects = @user.projects
   end
 
   def show
-    #show one project from current_user he has been assigned to
+    @project = Project.find(@project.user_id)
   end
 
   def edit
@@ -27,5 +31,11 @@ class ProjectsController < ApplicationController
   def destroy
     #destroy a project from team (and all its files???)
     #question: who should be able to delete a whole project
+  end
+
+  private
+
+  def team_params
+    params.require(:project).permit(:project_name, :description, :avatar_url)
   end
 end
