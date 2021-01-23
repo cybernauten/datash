@@ -3,8 +3,8 @@ class TeamsController < ApplicationController
   #before_action :authorize
 
   def index
+    @user = current_user
     @teams = policy_scope(Team)
-    @lc = LinkedConnection.where(user_id: current_user)
   end
 
   def show
