@@ -4,7 +4,11 @@
       <h2><% @user = current_user %></h2>
       <img style="background-image: url('<%= @user.avatar_url %>'); width: 140px; height: 140px; border-radius: 50%; border: black 2px solid; margin-top: 66px; background-size: 100%; padding: 69px;">
     </li>
-    <li><a class="active" href="#dashboard"></a><h1>DASHBOARD</h1></li>
+    <br>
+    <li class="db-displayname"> <%= @user.display_name %></li>
+    <li>#{role}</li>
+    <br>
+    <li><a class="active" href="#dashboard">Dashboard</a></li>
     <li><%= link_to "Teams", "/teams"%></li>
     <li><%= link_to "Projects", "/projects"%></li>
     <a href="/"><span class="db-DATAsh-blue">DATA</span><span class="db-dataSH-white">SH</span></a>

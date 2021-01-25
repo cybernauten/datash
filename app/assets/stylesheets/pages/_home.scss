@@ -24,10 +24,11 @@ h1 a:hover {
 
 ul {
   text-align: center;
+  font-size: 27px;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 25%;
+  width: 20%;
   background-color: #30363D;
   color: white;
   position: fixed;
@@ -45,6 +46,7 @@ li a {
 li a.active {
   background-color: #30363D;
   color: white;
+  text-decoration: none;
 }
 
 li a:hover:not(.active) {
@@ -90,3 +92,12 @@ li a:hover:not(.active) {
 
 }
 
+.db-displayname {
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.015em;
+color: #8A57E6;
+}
