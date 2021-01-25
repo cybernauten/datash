@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
   def update
     authorize @user
+    @user.save
+    redirect_to users_path(@user)
   end
 
 private
