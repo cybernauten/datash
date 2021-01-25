@@ -1,9 +1,48 @@
-h3 {
+h3.name {
   color: #7C61FF;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 30px;
+  letter-spacing: -0.015em;
+}
+
+p.description {
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  margin-left: 30px;
+}
+
+p.recent {
+font-family: Roboto;
+font-style: normal;
+font-weight: 300;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.015em;
+color: #FFFFFF;
+display: flex;
+margin-left: 200px;
 }
 
 .card-team {
   width: 500px;
   height: 300px;
   text-align: center;
+  background: #30363D;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
+

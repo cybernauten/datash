@@ -6,10 +6,11 @@
   <div class="team-cards-container d-flex w-50">
     <% @user.teams.each do |team| %>
       <div class="card-team">
-        <div style="background-image: url('<%= team.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: black 3px solid; margin: auto">
+        <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
+        <p class="recent">Recent</p>
         </div>
-        <h3><%= team.team_name %></h3>
-        <p><%= team.description %></p>
+        <h3 class="name"><%= team.team_name %></h3>
+        <p class="description"><%= team.description %></p>
       </div>
     <% end %>
   </div>
