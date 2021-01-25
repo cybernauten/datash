@@ -1,12 +1,16 @@
 <%= render "shared/dashboard" %>
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h2>SHOW USER (current user)</h2>
-  <p>This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
-  <p>their teams</p>
-  <p>their projects</p>
-  <p>their data?</p>
-  <p>their recents?</p>
-  <p>etc...</p>
-    <!-- edit user button -->
-    <%= link_to "back", user_path, class: "btn-white" %>
+  <div>
+    <div class="user d-flex flex-wrap">
+        <div class ="display">
+          <h3>Profile <%= @creator.display_name %></h3>
+            <p>Displa Name:  <%= @creator.display_name %></p>
+            <p>User Name:  <%= @creator.user_name %></p>
+            <p>E-Mail:  <%= @creator.email %></p>
+        </div>
+      <div style="background-image: url('<%= @creator.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: white 3px solid;">
+    </div>
+  </div>
+  <%= link_to "Edit Profile", "/users/#{current_user.id}/edit", class: "btn-blue" %>
+  <%= link_to "back", user_path, class: "btn-white" %>
 </div>
