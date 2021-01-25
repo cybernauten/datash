@@ -49,6 +49,10 @@ li a.active {
   text-decoration: none;
 }
 
+li a.active:hover {
+  color: #3FB951;
+}
+
 li a:hover:not(.active) {
   background-color: none;
   color: #3FB951;
