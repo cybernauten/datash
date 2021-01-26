@@ -27,7 +27,8 @@ font-weight: 300;
 font-size: 30px;
 line-height: 35px;
 display: flex;
-align-items: center;
+padding-top: 10px;
+text-align: center;
 letter-spacing: -0.015em;
 color: #3FB951;
 }
@@ -47,13 +48,21 @@ p.description {
 }
 
 p.recent {
-font-family: Roboto;
-font-style: normal;
-font-weight: 300;
-font-size: 30px;
-line-height: 35px;
-letter-spacing: -0.015em;
-color: #FFFFFF;
-display: flex;
-margin-left: 200px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  display: flex;
+  margin-left: 200px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.p-5 {
+  padding: 5rem !important;
 }
