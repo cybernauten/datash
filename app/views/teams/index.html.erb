@@ -1,13 +1,15 @@
 <%= render "shared/dashboard" %>
-<div style="margin-left:25%; padding:86px 28px; height:1000px;">
+<div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
     <h2>TEAMS</h2>
   </div>
-  <div class="team-cards-container d-flex w-50">
+  <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
     <% @user.teams.each do |team| %>
       <div class="card-team">
         <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
         <p class="recent">Recent</p>
+        <p class="recent">doc</p>
+        <p class="recent">doc</p>
         </div>
         <h3 class="name"><%= team.team_name %></h3>
         <p class="description"><%= team.description %></p>
