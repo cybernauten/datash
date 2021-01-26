@@ -1,6 +1,24 @@
 <%= render "shared/dashboard" %>
 
-<div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h2>SHOW TEAM X </h2>
-  <p>Card & text..</p>
+<div style="margin-left:25%; margin-right: 6%; padding:86px 28px;height:1000px;">
+  <div class ="view title d-flex w-100 justify-content-center">
+    <h2><%= @team.team_name %></h2>
+  </div>
+  <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
+    <div class="card-team">
+      <h3 class="project-name justify-content-around">Project</h3>
+      <div class="d-flex justify-content-around">
+        <div class="team-info d-inline-block w-49 p-3 text-left">
+          <p>Latest Update</p>
+          <p>Client</p>
+          <p>Company</p>
+        </div>
+        <div class="doc-names d-inline-block w-49 p-3 text-left">
+          <p>doc name</p>
+          <p>doc name</p>
+          <p>doc name</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
