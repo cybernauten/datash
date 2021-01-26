@@ -5,8 +5,8 @@
   <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
     <% @user.projects.each do |project| %>
         <div class="card-team">
-          <h3><%= project.project_name %></h3>
-          <p><%= project.description %></p>
+          <h3 class="project-name"><%= project.project_name %></h3>
+          <p class="description"><%= project.description %></p>
         </div>
     <% end %>
   </div>
