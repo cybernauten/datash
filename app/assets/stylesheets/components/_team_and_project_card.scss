@@ -56,7 +56,19 @@ p.recent {
   letter-spacing: -0.015em;
   color: #FFFFFF;
   display: flex;
-  margin-left: 200px;
+  padding-left: 242px;
+}
+
+p.doc-names {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  color: white;
+  display: flex;
+  padding-left: 242px;
 }
 
 a {
