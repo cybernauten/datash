@@ -24,7 +24,7 @@ h1 a:hover {
 
 ul {
   text-align: center;
-  font-size: 27px;
+  font-size: 24px;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -38,9 +38,27 @@ ul {
 
 li a {
   display: block;
+  text-align: left;
   color: white;
-  padding: 8px 16px;
+  padding: 7px 13px 2px 130px;
   text-decoration: none;
+}
+
+.db-displayname {
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.015em;
+color: #8A57E6;
+text-align: left;
+padding: 7px 13px 2px 130px;
+}
+
+.db-role {
+  text-align: left;
+  padding: 7px 13px 2px 130px;
 }
 
 li a.active {
@@ -96,12 +114,3 @@ li a:hover:not(.active) {
 
 }
 
-.db-displayname {
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 30px;
-line-height: 35px;
-letter-spacing: -0.015em;
-color: #8A57E6;
-}
