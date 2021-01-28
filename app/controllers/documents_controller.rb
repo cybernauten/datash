@@ -1,12 +1,8 @@
 class DocumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, except: :index
-
   def index
     @user = current_user
-    authorize @user
     @documents = policy_scope(Document)
   end
 
