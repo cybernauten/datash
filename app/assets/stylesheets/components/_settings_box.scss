@@ -1,10 +1,9 @@
 .settings-box {
-    width: 500px;
-    height: 300px;
+    display: flex;
     text-align: left;
     background: #30363D;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    margin: 14 px
+    margin-top: 16px;
   }
   
   p.input {

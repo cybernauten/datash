@@ -1,8 +1,8 @@
 <%= render "shared/dashboard" %>
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h2 style="padding:15px;color:#f0883e">EDIT PROFILE</h2>
-  <div class="edit-user-container mt-4 mb-5" style="color: #ffffff">
-    <div class="col-12">
+  <h2 style="padding:12px;color:#f0883e">EDIT PROFILE</h2>
+  <div class=" mt-4 mb-5" style="color: #ffffff">
+    <div class="col-12 settings-box">
       <%= simple_form_for(@user) do |f| %>
       <%= f.input :display_name %>
       <%= f.input :user_name %>
@@ -16,37 +16,38 @@
     </div>
   </div>
 
-  <div class="settings-box">
+  <div>
     <h2 style="padding:15px;color:#f0883e">SECURITY SETTINGS</h2>
+    <div class="settings-box">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= f.error_notification %>
+        <div class="form-inputs" style="padding:15px">
+          <div>
+          <%= f.input :email, required: true, autofocus: true %>
 
-      <div class="form-inputs" style="padding:15px">
-        <div>
-        <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
-
-        <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
-                    required: true,
-                    input_html: { autocomplete: "current-password" } %>
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+          </div>
         </div>
-      </div>
-        <div class="form-actions" style="padding:15px">
-          <%= f.button :submit, "Update", class: "btn-blue m-2" %>
-        </div>
-    <% end %>
+          <div class="form-actions" style="padding:15px">
+            <%= f.button :submit, "Update", class: "btn-blue m-2" %>
+          </div>
+      <% end %>
+    </div>
 
     <h3 style="padding:15px;color:#f0883e">CANCEL MY ACCOUNT</h3>
 
