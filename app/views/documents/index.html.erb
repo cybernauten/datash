@@ -13,14 +13,14 @@
         <th><h2>Size</h2></th>
         <th><h2>Project</h2></th>
       </tr>
-      <% @documents.each do |data| %>
-      <tr>
-        <td><p><%= data.file_name %></p></td>
-        <td><p><%= data.file_type %></p></td>
-        <td><p><%= data.creation_date %></p></td>
-        <td><p><%= data.file_size %></p></td>
-        <td><p><%= data.project %></p></td>
-      </tr>
+      <% @user.documents.each do |data| %>
+        <tr>
+          <td><p><%= data.file_name %></p></td>
+          <td><p><%= data.file_type %></p></td>
+          <td><p><%= data.creation_date %></p></td>
+          <td><p><%= data.file_size %></p></td>
+          <td><p><%= data.project.project_name %></p></td>
+        </tr>
       <% end %>
     </table></center>
   </div>
