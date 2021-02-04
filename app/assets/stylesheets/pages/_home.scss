@@ -90,19 +90,19 @@ li a:hover:not(.active) {
   color: #3FB951;
 }
 
-.db-dataSH-white {
+li a.db-dataSH-white {
   color: white;
 }
 
-.db-dataSH-white:hover {
+li a.db-dataSH-white:hover {
   color: #378BFC;
 }
 
-.db-DATAsh-blue {
+li a.db-DATAsh-blue {
   color: #378BFC;
 }
 
-.db-DATAsh-blue:hover {
+li a.db-DATAsh-blue:hover {
   color: white;
 }
 
@@ -110,7 +110,13 @@ li a:hover:not(.active) {
   color: #8A57E6;
 }
 
-.dashboard {
-
+.sign-up-header {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: -0.015em;
+  color: white;
 }
 

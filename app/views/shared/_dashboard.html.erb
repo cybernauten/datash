@@ -5,16 +5,18 @@
       <img style="background-image: url('<%= @user.avatar_url %>'); width: 140px; height: 140px; border-radius: 50%; border: black 2px solid; margin-top: 66px; background-size: 100%; padding: 69px;">
     </li>
     <br>
-    <li class="db-displayname"> <%= @user.display_name %></li>
+    <li class="db-displayname"> <%= @user.display_name.upcase %></li>
     <li class="db-role">#{role}</li>
     <br>
     <li><a class="active" href="#dashboard">Dashboard</a></li>
     <li><%= link_to "Teams", "/teams"%></li>
     <li><%= link_to "Projects", "/projects"%></li>
-    <li><a href="/"><span class="db-DATAsh-blue">DATA</span><span class="db-dataSH-white">SH</span></a></li>
-    <!-- <li><%= link_to "DB", "/"%><span class="db-DATAsh-blue">DATA</span><span class="db-dataSH-white">SH</span></a></li> -->
+    <li><%= link_to "DATASH", "/users/#{current_user.id}/documents", class: "db-DATAsh-blue"%></li>
     <li><a href="#recent">Recent</a></li>
     <li><%= link_to "Profile", "/users/#{current_user.id}"%></li>
     <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
   </ul>
 </div>
+
+<!-- <span class="db-DATAsh-blue">DATA</span><span class="db-dataSH-white">SH</span>
+ -->

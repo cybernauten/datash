@@ -1,8 +1,9 @@
 <div class="sign-in-box w-50 mx-auto">
-  <h2>Log in</h2>
-  <div class="edit-user-container mt-4 mb-5" style="color: #ffffff; background: #30363D; border: 1px solid white; box-sizing: border-box;">
+  <h2 style="color: #378BFC"><center>DATASH your data management</center></h2>
+  <div class="edit-user-container mt-4 mb-5" style="color: #ffffff; background: #30363D; border: 1px solid white; box-sizing: border-box; padding: 70px">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="col-12">
+    <p class="sign-up-header">Sign in to your account</p>
         <%= f.input :email,
                     required: false,
                     autofocus: true,
@@ -13,8 +14,9 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions">
+      <div class="form-actions pl-1">
         <%= f.button :submit, "Log in", class: "btn-blue m-2" %>
+        <%= f.button :submit, "Sign up", class: "btn-white m-2" %>
       </div>
     <% end %>
 
