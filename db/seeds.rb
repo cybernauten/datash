@@ -27,7 +27,14 @@ assignment_one = Assignment.create(user_id: user_three.id, project_id: project_t
 assignment_two = Assignment.create(user_id: user_two.id, project_id: project_three.id)
 assignment_three = Assignment.create(user_id: user_one.id, project_id: project_one.id)
 assignment_four = Assignment.create(user_id: user_three.id, project_id: project_one.id)
+assignment_five = Assignment.create(user_id: user_one.id, project_id: project_two.id)
+assignment_six = Assignment.create(user_id: user_one.id, project_id: project_three.id)
+
 
 linked_connection_anotherone = LinkedConnection.create(user_id: user_one.id, team_id: team_three.id)
 linked_connection_anothertwo = LinkedConnection.create(user_id: user_two.id, team_id: team_one.id)
 linked_connection_anotherthree = LinkedConnection.create(user_id: user_three.id, team_id: team_two.id)
+
+document_four = Document.create!(file_name:'document_four', file_type: 'pages', creation_date: "4. Feb 2021", file_size: '40', project: project_two, user: user_one)
+document_five = Document.create!(file_name:'document_five', file_type: '.jpeg', creation_date: "1. Feb 2021", file_size: '3', project: project_three, user: user_one)
+document_six = Document.create!(file_name:'document_six', file_type: '.png', creation_date: "20. Dec 2020", file_size: '260', project: project_one, user: user_one)
