@@ -26,15 +26,18 @@ td {
   width: 220px;
   text-align: center;
   padding: 5px;
-  // border: 0.01em solid #3FB951;
 }
 
-tbody tr:nth-child(even)
-  {
-    background: #272D34;
-  }
 
-tbody tr:nth-child(odd)
-  {
+tbody tr:nth-child(even) {
+    background: #272D34;
+}
+
+tbody tr:nth-child(odd) {
     background: #30363D;
-  }
+}
+
+tr:hover td {
+  border-bottom: 0.01em solid #3FB951 !important;
+  transition: 0.3s;
+}
