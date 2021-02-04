@@ -1,0 +1,36 @@
+.docs-table {
+  display: table-header-group;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+table p {
+  margin-bottom: 0;
+}
+
+th {
+  color: white;
+  background-color: #161B23;
+  border: 1px solid #161B23 !important;
+}
+
+th,
+td {
+  width: 220px;
+  text-align: center;
+  padding: 5px;
+  // border: 0.01em solid #3FB951;
+}
+
+tbody tr:nth-child(even)
+  {
+    background: #272D34;
+  }
+
+tbody tr:nth-child(odd)
+  {
+    background: #30363D;
+  }

@@ -4,12 +4,24 @@
   <h2>DOCUMENTS (DATA)</h2>
   </div>
 
-  <div class="documents-container w-100 mt-4 justify-content-around">
-    <h2>finallllyyy</h2>
-    <p>doc i</p>
-    <p>doc ii</p>
-    <p>doc iii</p>
-    <p>doc iv</p>
-    <p>doc v</p>
+  <div class="documents-container w-100 mt-4">
+    <center><table class="docs-table">
+      <tr>
+        <th><h2>Name</h2></th>
+        <th><h2>Type</h2></th>
+        <th><h2>Date Created</h2></th>
+        <th><h2>Size</h2></th>
+        <th><h2>Project</h2></th>
+      </tr>
+      <% @documents.each do |data| %>
+      <tr>
+        <td><p><%= data.file_name %></p></td>
+        <td><p><%= data.file_type %></p></td>
+        <td><p><%= data.creation_date %></p></td>
+        <td><p><%= data.file_size %></p></td>
+        <td><p><%= data.project %></p></td>
+      </tr>
+      <% end %>
+    </table></center>
   </div>
 </div>
