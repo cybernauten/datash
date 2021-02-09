@@ -7,6 +7,9 @@
         <div class="card-team">
           <h3 class="project-name"><%= project.project_name %></h3>
           <p class="description"><%= project.description %></p>
+          <% project.users.each do |user| %>
+          <p class="username"><%= user.user_name %></p>
+          <% end %>
         </div>
     <% end %>
   </div>
