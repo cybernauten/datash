@@ -1,6 +1,16 @@
+.team-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
 .card-team {
   width: 500px;
   height: 300px;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  overflow: scroll;
   text-align: center;
   background: #30363D;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -26,7 +36,7 @@ font-style: normal;
 font-weight: 300;
 font-size: 30px;
 line-height: 35px;
-display: flex;
+display: center;
 padding-top: 10px;
 text-align: center;
 letter-spacing: -0.015em;
