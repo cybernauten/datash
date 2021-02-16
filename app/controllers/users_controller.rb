@@ -17,9 +17,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
     authorize @user
-    @user.save
-    redirect_to users_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
 private
