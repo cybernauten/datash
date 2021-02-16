@@ -2,10 +2,6 @@
   <script src="sorttable.js"></script>
 </head>
 
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "sorttable.js" %>
-<% end %>
-
 <%= render "shared/dashboard" %>
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
@@ -14,7 +10,7 @@
 
   <div class="documents-container w-100 mt-4">
     <center><table class="sortable">
-        <thead> 
+        <thead>
           <tr>
             <th><h2>Name</h2></th>
             <th><h2>Type</h2></th>
