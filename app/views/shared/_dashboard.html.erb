@@ -13,7 +13,8 @@
     <li><%= link_to "Projects", "/projects"%></li>
     <li><%= link_to "DATASH", "/users/#{current_user.id}/documents", class: "db-DATAsh-blue"%></li>
     <li><a href="#recent">Recent</a></li>
-    <li><%= link_to "Profile", "/users/#{current_user.id}"%></li>
+<!--     <li><%= link_to "Profile", "/users/#{current_user.id}"%></li>
+ -->    <li><%= link_to "Settings", "/users/#{current_user.id}", class: "db-settings"%></li>
     <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
   </ul>
 </div>
