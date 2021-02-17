@@ -10,7 +10,9 @@
           </div>
         <!-- <div style="background-image: url('<%= @creator.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: white 3px solid;"> -->
       </div>
-    <%= link_to "Edit Profile", "/users/#{current_user.id}/edit", class: "btn-blue ml-3" %>
-    <%= link_to "back", user_path, class: "btn-white" %>
+      <div>
+        <%= link_to "Edit Profile", "/users/#{current_user.id}/edit", class: "btn-blue ml-3" %>
+        <%= link_to "back", user_path, class: "btn-white" %>
+      </div>
   </div>
 </div>
