@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  #skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :authenticate_user!
 
   def index
     @users = policy_scope(User)
