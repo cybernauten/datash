@@ -2,15 +2,22 @@
 <div  style="margin-left: 25%; padding:86px 28px; height:1000px" >
   <center><h2>RECENT ACTIVITY</h2></center>
   <br>
-  <div>
-    <p>Contributing to <span style="color: #7C61FF; font-size: 25px;"><%= @user.teams.count %></span> Teams</p>
-    <p>Part of <span style="color: #7C61FF; font-size: 25px;"><%= @user.projects.count %></span> Projects</p>
-    <p>Access to <span style="color: #7C61FF; font-size: 25px;"><%= @user.documents.count %></span> Documents</p>
+  <div class="mb-5 mt-4">
+    <div align="center" class="float-left">
+      <p>Contributing to <span style="color: #7C61FF; font-size: 25px;"><%= @user.teams.count %></span> Teams</p>
+    </div>
+    <div align="center" class="float-left">
+      <p>Part of <span style="color: #7C61FF; font-size: 25px;"><%= @user.projects.count %></span> Projects</p>
+    </div>
+    <div align="center" class="float-left">
+      <p>Access to <span style="color: #7C61FF; font-size: 25px;"><%= @user.documents.count %></span> Documents</p>
+    </div>
   </div>
+
   <br>
 
   <%= simple_form_for :search, url: recent_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
+    <div class="search-form-control form-group mt-5">
       <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Filter by name, date, project, team, keyword, etc." autocomplete="off"/>
       <button name="button" type="submit" class="btn btn-flat">
         <i class="fas fa-search"></i> Search
