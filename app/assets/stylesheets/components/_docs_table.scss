@@ -42,3 +42,9 @@ tr:hover td {
   border-bottom: 0.01em solid #3FB951 !important;
   transition: 0.3s;
 }
+
+.sortable > thead > tr > th > h2 {
+  position: relative;
+  display: inline-flex;
+  padding-top: 4px;
+}
