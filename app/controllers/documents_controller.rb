@@ -6,11 +6,18 @@ class DocumentsController < ApplicationController
     @user = current_user
     @documents = policy_scope(Document)
   end
-
+  
+  def show
+    @document = Document.find(params[:id])
+  end
+  
   def new
+    @user = current_user
+    @document = Document.new
   end
 
   def create
+    authorize @document
   end
 
   def update
@@ -19,8 +26,6 @@ class DocumentsController < ApplicationController
   def edit
   end
 
-  def show
-  end
 
   def destroy
   end

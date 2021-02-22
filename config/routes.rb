@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do
     resources :linkedconnections, only:[:index, :show]
-    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
+    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
     resources :assignments, only:[:index, :show]
   end
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :cooperations, only:[:create, :update]
-    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update ]
+    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
     resources :assignments, only:[:create, :update]
   end
 end
