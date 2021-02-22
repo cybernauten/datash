@@ -52,7 +52,7 @@ p.description {
   line-height: 28px;
   display: flex;
   align-items: center;
-  text-align: center;
+  // text-align: center;
   letter-spacing: -0.015em;
   margin-left: 30px;
 }
@@ -87,4 +87,30 @@ a {
 
 .p-5 {
   padding: 5rem !important;
+}
+
+p.team-show-doc-names {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  color: white;
+  display: flex;
+  padding-right: 50px;
+}
+
+p.team-show-info {
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  // text-align: center;
+  letter-spacing: -0.015em;
+  margin-left: 30px;
 }
