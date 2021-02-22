@@ -26,9 +26,36 @@
   <% end %>
 
   <br>
-  <p>Recently Active Teams</p>
+<!--   <p>Recently Active Teams</p>
   <p>Recently Active Projects</p>
   <p>Recently Opened Documents</p>
-  <p>Last Updated Documents</p>
+  <p>Last Updated Documents</p> -->
+
+  <div id="timeline-content">
+<!--     <h1>Timeline</h1>
+ -->
+    <ul class="timeline">
+      <li class="event" data-date="13-02-2021">
+        <h3>Edited <%= @user.documents.last.file_name %></h3>
+        <p>see filename</p>
+      </li>
+      <li class="event" data-date="12-02-2021">
+        <h3>Added <%= @user.documents.last.file_name %></h3>
+        <p>added to Project Y</p>
+      </li>
+      <li class="event" id="date" data-date="07-02-2021">
+        <h3>Created <%= @user.projects.first.project_name %></h3>
+        <p></p> <p>assigned to Team X </p>
+      </li>
+
+      <li class="event" data-date="26-01-2021">
+
+        <h3>Joined <%= @user.teams.last.team_name %></h3>
+
+        <p>This team has # contributors<p/> <p>This is your <em><strong>10th</strong></em> team!<p/>
+<!--   <p><a href="https://www.datash.com">datash.com</a></p>
+ -->      </li>
+    </ul>
+  </div>
 
 </div>
