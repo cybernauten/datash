@@ -25,6 +25,21 @@
     </div>
   <% end %>
 
+<!-- below another version of search bar...written differently
+ --><!--     <%#= form_tag(projects_path, method: :get, class: "search-form-control form-group mt-5", role: 'search') do %>
+    <div class="input-group">
+      <%#= text_field_tag :term,
+        params[:term],
+        id: 'projects_search',
+        autocomplete: :off,
+        placeholder: 'Search',
+        class: 'form-control string required' %>
+      <div class="input-group-btn search-panel">
+        <%#= submit_tag 'Search', name: nil, class: "btn btn-flat" %>
+      </div>
+    </div>
+  <%# end %> -->
+
   <br>
 <!--   <p>Recently Active Teams</p>
   <p>Recently Active Projects</p>

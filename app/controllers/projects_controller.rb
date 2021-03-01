@@ -6,6 +6,16 @@ class ProjectsController < ApplicationController
   def index
     @user = current_user
     @projects = policy_scope(Project)
+    #  if params[:term].present?
+    #    @projects = policy_scope(Project).where(project_name: params[:term])
+    #    if @projects.blank?
+    #      @error = "sorry no match"
+    #    else @projects.blank? == false
+    #      puts "okay okay"
+    #    end
+    #  else
+    #    @projects = policy_scope(Project)
+    #  end
   end
 
   def show
