@@ -48,24 +48,23 @@
     <% else %>
       <div id="timeline-content">
         <ul class="timeline">
-          <li class="event" data-date="13-02-2021">
+          <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <h3>Edited <%= @user.documents.last.file_name %></h3>
-            <p>see filename</p>
+            <p>edited file size</p>
           </li>
-          <li class="event" data-date="12-02-2021">
+          <li class="event" data-date="<%= @user.documents.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <h3>Added <%= @user.documents.last.file_name %></h3>
-            <p>added to Project Y</p>
+            <p>added to <%=  @user.documents.last.project.project_name %></p>
           </li>
-          <li class="event" id="date" data-date="07-02-2021">
-            <h3>Created <%= @user.projects.first.project_name %></h3>
-            <p></p> <p>assigned to Team X </p>
+          <li class="event" id="date" data-date="<%= @user.projects.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+            <h3>Created <%= @user.projects.last.project_name %></h3>
+            <p>assigned to <%= Team.find(Cooperation.where(project_id: @user.projects.last.id)[0].team_id).team_name %></p>
           </li>
 ​
-          <li class="event" data-date="26-01-2021">
+          <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
 ​
             <h3>Joined <%= @user.teams.last.team_name %></h3>
-​
-            <p>This team has # contributors</p> <p>This is your <em><strong>10th</strong></em> team!</p>
+            <p>This team has # contributors</p> <p>This is your <em><strong><%= @user.teams.count %>th</strong></em> team!</p>
           </li>
         </ul>
       </div>
