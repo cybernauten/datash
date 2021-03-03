@@ -38,3 +38,7 @@ linked_connection_anotherthree = LinkedConnection.create(user_id: user_three.id,
 document_four = Document.create!(file_name:'document_four', file_type: 'pages', creation_date: "4. Feb 2021", file_size: '40', project: project_two, user: user_one)
 document_five = Document.create!(file_name:'document_five', file_type: '.jpeg', creation_date: "1. Feb 2021", file_size: '3', project: project_three, user: user_one)
 document_six = Document.create!(file_name:'document_six', file_type: '.png', creation_date: "20. Dec 2020", file_size: '260', project: project_one, user: user_one)
+
+coop_one = Cooperation.create(team_id: team_one.id, project_id: project_one.id)
+coop_two = Cooperation.create(team_id: team_one.id, project_id: project_two.id)
+coop_three = Cooperation.create(team_id: team_three.id, project_id: project_three.id)
