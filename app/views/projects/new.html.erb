@@ -2,6 +2,11 @@
 
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
   <h2>CREATE NEW PROJECT</h2>
-  <p>Card & text..</p>
-  <p>Find me in app/views/projects/edit.html.erb</p>
+  <%= form_for(@project) do |f| %>
+  <%= f.label :project_name %>
+  <%= f.text_field :project_name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit %>
+<% end %>
 </div>

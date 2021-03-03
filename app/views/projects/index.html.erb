@@ -6,6 +6,7 @@
   </div>
   <div class="team-cards-container d-flex w-100">
     <% @user.projects.each do |project| %>
+      <%= link_to "/projects/#{project.id}" do %>
         <div class="card-team">
           <h3 class="project-name"><%= project.project_name.upcase %></h3>
           <p class="description"><%= project.description %></p>
@@ -13,6 +14,7 @@
           <p class="username"><%= user.user_name %></p>
           <% end %>
         </div>
+      <% end %>  
     <% end %>
   </div>
 
