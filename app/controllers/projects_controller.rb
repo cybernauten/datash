@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(@project.user_id)
+    @project = Project.find(params[:id])
   end
 
   def edit
@@ -22,10 +22,19 @@ class ProjectsController < ApplicationController
 
   def new
     #create a new project for the team
+    @user = current_user
+    @project = Project.new
   end
 
   def create
     #create a new project for the team
+    @user = current_user
+    @project = Project.new(project_params)
+    @project.users << @user
+    @project.save
+
+    # no need for app/views/restaurants/create.html.erb
+    redirect_to project_path(@project)
   end
 
   def destroy
@@ -35,7 +44,7 @@ class ProjectsController < ApplicationController
 
   private
 
-  def team_params
+  def project_params
     params.require(:project).permit(:project_name, :description, :avatar_url)
   end
 end

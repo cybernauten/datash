@@ -1,7 +1,25 @@
 <%= render "shared/dashboard" %>
 
-<div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h2>SHOW PROJECT X </h2>
-  <p>Card & text..</p>
-  <p>Find me in app/views/projects/edit.html.erb</p>
+<div style="margin-left:25%; margin-right: 6%; padding:86px 28px;height:1000px;">
+  <div class ="view title d-flex w-100 justify-content-center">
+    <h2><%= @project.project_name %></h2>
+  </div>
+  <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
+    <div class="card-team">
+      <h3 class="project-name justify-content-between">Project</h3>
+      <div class="d-flex justify-content-around">
+        <div class="team-info d-inline-block w-49 p-3 text-left">
+          <p class="team-show-info">Latest Update</p>
+          </br>
+          <p class="team-show-info">Client</p>
+          <p class="team-show-info">Company</p>
+        </div>
+        <div class="doc-names d-inline-block w-49 p-3 text-left">
+          <p class="team-show-doc-names">doc name</p>
+          <p class="team-show-doc-names">doc name</p>
+          <p class="team-show-doc-names">doc name</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
