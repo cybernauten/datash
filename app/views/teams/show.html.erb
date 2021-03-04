@@ -5,21 +5,25 @@
     <h2><%= @team.team_name %></h2>
   </div>
   <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
-    <div class="card-team">
-      <h3 class="project-name justify-content-between">Project</h3>
-      <div class="d-flex justify-content-around">
-        <div class="team-info d-inline-block w-49 p-3 text-left">
-          <p class="team-show-info">Latest Update</p>
-          </br>
-          <p class="team-show-info">Client</p>
-          <p class="team-show-info">Company</p>
+    <% @user.projects.each do |project| %>
+      <%= link_to "/teams/#{project.team_id}/projects" do %>
+        <div class="card-team">
+          <h3 class="project-name justify-content-between"><%= project.project_name if @team.id == project.team_id %></h3>
+          <div class="d-flex justify-content-around">
+            <div class="team-info d-inline-block w-49 p-3 text-left">
+              <p class="team-show-info">Latest Update</p>
+              </br>
+              <p class="team-show-info">Client</p>
+              <p class="team-show-info">Company</p>
+            </div>
+            <div class="doc-names d-inline-block w-49 p-3 text-left">
+              <p class="team-show-doc-names">doc name</p>
+              <p class="team-show-doc-names">doc name</p>
+              <p class="team-show-doc-names">doc name</p>
+            </div>
+          </div> 
         </div>
-        <div class="doc-names d-inline-block w-49 p-3 text-left">
-          <p class="team-show-doc-names">doc name</p>
-          <p class="team-show-doc-names">doc name</p>
-          <p class="team-show-doc-names">doc name</p>
-        </div>
-      </div>
-    </div>
-  </div>
+      <% end %>
+    <% end %>
+  </div>  
 </div>

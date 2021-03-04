@@ -58,7 +58,8 @@
           </li>
           <li class="event" id="date" data-date="<%= @user.projects.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <h3>Created <%= @user.projects.last.project_name %></h3>
-            <p>assigned to <%= Team.find(Cooperation.where(project_id: @user.projects.last.id)[0].team_id).team_name %></p>
+            <p>assigned to <%=  Team.find_by(params[:id]).team_name %></p>
+                            <%#= Team.find(Cooperation.where(project_id: @user.projects.last.id)[0].team_id).team_name %>
           </li>
 ​
           <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">

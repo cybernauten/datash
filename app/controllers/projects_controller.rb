@@ -30,11 +30,11 @@ class ProjectsController < ApplicationController
     #create a new project for the team
     @user = current_user
     @project = Project.new(project_params)
-    @project.users << @user
+    #@project.users << @user
     @project.save
 
     # no need for app/views/restaurants/create.html.erb
-    redirect_to project_path(@project)
+    redirect_to @projects
   end
 
   def destroy
@@ -45,6 +45,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:project_name, :description, :avatar_url)
+    params.require(:project).permit(:team_name, :project_name, :description, :avatar_url)
   end
 end

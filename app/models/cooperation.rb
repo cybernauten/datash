@@ -1,4 +1,4 @@
-class Cooperation < ApplicationRecord
-  belongs_to :team
-  belongs_to :project
-end
+# class Cooperation < ApplicationRecord
+#   belongs_to :team
+#   belongs_to :project
+# end
