@@ -24,7 +24,7 @@ project_six = Project.create!(team: team_three, project_name:'project_six', desc
 document_one = Document.create!(file_name:'document_one', file_type: '.pdf', creation_date: "date", file_size: '30', project: project_one, user: user_one)
 document_two = Document.create!(file_name:'document_two', file_type: '.pdf', creation_date: "date", file_size: '30', project: project_two, user: user_two)
 document_three = Document.create!(file_name:'document_three', file_type: '.pdf', creation_date: "date", file_size: '30', project: project_three, user: user_three)
-document_four = Document.create!(file_name:'document_four', file_type: 'pages', creation_date: "4. Feb 2021", file_size: '40', project: project_two, user: user_one)
+document_four = Document.create!(file_name:'document_four', file_type: 'pages', creation_date: "4. Feb 2021", file_size: '40', project: project_two, user: user_three)
 document_five = Document.create!(file_name:'document_five', file_type: '.jpeg', creation_date: "1. Feb 2021", file_size: '3', project: project_three, user: user_one)
 document_six = Document.create!(file_name:'document_six', file_type: '.png', creation_date: "20. Dec 2020", file_size: '260', project: project_one, user: user_one)
 
@@ -36,11 +36,17 @@ linked_connection_anothertwo = LinkedConnection.create(user_id: user_two.id, tea
 linked_connection_anotherthree = LinkedConnection.create(user_id: user_three.id, team_id: team_two.id)
 
 assignment_one = Assignment.create(user_id: user_three.id, project_id: project_two.id)
-assignment_two = Assignment.create(user_id: user_two.id, project_id: project_three.id)
+assignment_two = Assignment.create(user_id: user_three.id, project_id: project_three.id)
 assignment_three = Assignment.create(user_id: user_one.id, project_id: project_one.id)
-assignment_four = Assignment.create(user_id: user_three.id, project_id: project_one.id)
-assignment_five = Assignment.create(user_id: user_one.id, project_id: project_two.id)
+assignment_four = Assignment.create(user_id: user_two.id, project_id: project_one.id)
+assignment_five = Assignment.create(user_id: user_two.id, project_id: project_two.id)
 assignment_six = Assignment.create(user_id: user_one.id, project_id: project_three.id)
+assignment_seven = Assignment.create(user_id: user_one.id, project_id: project_four.id)
+assignment_eight = Assignment.create(user_id: user_one.id, project_id: project_six.id)
+assignment_nine = Assignment.create(user_id: user_two.id, project_id: project_four.id)
+assignment_ten = Assignment.create(user_id: user_two.id, project_id: project_five.id)
+assignment_eleven = Assignment.create(user_id: user_three.id, project_id: project_five.id)
+assignment_twelve = Assignment.create(user_id: user_three.id, project_id: project_six.id)
 
 
 # coop_one = Cooperation.create(team_id: team_one.id, project_id: project_one.id)
