@@ -1,3 +1,25 @@
 .sign-in-box {
   padding-top: 130px;
 }
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: #398AFC !important;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: #398AFC !important;
+}
+
+.form-control {
+  color: white
+}
+
+.form-control:focus {
+  color: white;
+  background-color: #161B23;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0 30px #161B23 inset !important;
+}
