@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 2021_01_22_092528) do
     t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
-  create_table "cooperations", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.bigint "project_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["project_id"], name: "index_cooperations_on_project_id"
-    t.index ["team_id"], name: "index_cooperations_on_team_id"
-  end
-
   create_table "documents", force: :cascade do |t|
     t.string "file_name"
     t.string "file_type"
@@ -60,8 +51,10 @@ ActiveRecord::Schema.define(version: 2021_01_22_092528) do
     t.string "project_name"
     t.string "description"
     t.date "creation_date"
+    t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_projects_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -89,10 +82,9 @@ ActiveRecord::Schema.define(version: 2021_01_22_092528) do
 
   add_foreign_key "assignments", "projects"
   add_foreign_key "assignments", "users"
-  add_foreign_key "cooperations", "projects"
-  add_foreign_key "cooperations", "teams"
   add_foreign_key "documents", "projects"
   add_foreign_key "documents", "users"
   add_foreign_key "linked_connections", "teams"
   add_foreign_key "linked_connections", "users"
+  add_foreign_key "projects", "teams"
 end

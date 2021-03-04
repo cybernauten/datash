@@ -11,7 +11,7 @@
 
     <li><%= link_to "Dashboard", "/"%></li>
     <li><%= link_to "Teams", "/teams"%></li>
-    <li><%= link_to "Projects", "/projects"%></li>
+    <li><%= link_to "Projects", "/users/#{current_user.id}/projects"%></li>
     <li><%= link_to "DATASH", "/users/#{current_user.id}/documents", class: "db-DATAsh-blue"%></li>
 <!--     <li><%= link_to "Recent", "/recent"%></li>
  -->    <li><a href="/recent">Recent</a></li>

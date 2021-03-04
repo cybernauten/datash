@@ -18,16 +18,16 @@ Rails.application.routes.draw do
     resources :linkedconnections, only:[:index, :show]
     resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
     resources :assignments, only:[:index, :show]
+    resources :projects, only:[:index, :show, :new, :create]
   end
-
+  
   resources :teams, except:[:destroy] do
     resources :linkedconnections, only:[:create, :update]
-    resources :cooperations, only:[:create, :update]
-  end
-
-  resources :projects do
-    resources :cooperations, only:[:create, :update]
-    resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
-    resources :assignments, only:[:create, :update]
+    #resources :cooperations, only:[:create, :update]
+    resources :projects do
+      #resources :cooperations, only:[:create, :update]
+      resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
+      resources :assignments, only:[:create, :update]
+    end
   end
 end
