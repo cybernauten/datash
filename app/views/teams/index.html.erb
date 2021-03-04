@@ -5,7 +5,7 @@
   </div>
   <div class="team-cards-container d-flex w-100">
     <% @user.teams.each do |team| %>
-      <%= link_to "/teams/#{team.id}" do %>
+      <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
         <div class="card-team">
           <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
           <p class="recent">Recent</p>
@@ -22,7 +22,7 @@
   </div>
 
   <div>
-  <%= link_to new_team_path do %>
+  <%= link_to "/users/#{@user.id}/teams/new" do %>
     <% render "shared/newButton" %>
     <% end %>
   </div>
