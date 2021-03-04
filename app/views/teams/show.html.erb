@@ -4,9 +4,9 @@
   <div class ="view title d-flex w-100 justify-content-center">
     <h2><%= @team.team_name %></h2>
   </div>
-  <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
-    <% @user.projects.each do |project| %>
-      <%= link_to "/teams/#{project.team_id}/projects" do %>
+  <% @user.projects.each do |project| %>
+    <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects" do %>
+      <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
         <div class="card-team">
           <h3 class="project-name justify-content-between"><%= project.project_name if @team.id == project.team_id %></h3>
           <div class="d-flex justify-content-around">
@@ -23,7 +23,7 @@
             </div>
           </div> 
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>  
+  <% end %>  
 </div>

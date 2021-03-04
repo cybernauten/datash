@@ -10,11 +10,11 @@
     <br>
 
     <li><%= link_to "Dashboard", "/"%></li>
-    <li><%= link_to "Teams", "/teams"%></li>
+    <li><%= link_to "Teams", "/users/#{current_user.id}/teams"%></li>
     <li><%= link_to "Projects", "/users/#{current_user.id}/projects"%></li>
     <li><%= link_to "DATASH", "/users/#{current_user.id}/documents", class: "db-DATAsh-blue"%></li>
 <!--     <li><%= link_to "Recent", "/recent"%></li>
- -->    <li><a href="/recent">Recent</a></li>
+ -->    <li><%= link_to "Recent", "/users/#{current_user.id}/recent"%></li>
 <!--     <li><a href="#recent">Recent</a></li>
  --><!--     <li><%= link_to "Profile", "/users/#{current_user.id}"%></li>
  -->    <li><%= link_to "Settings", edit_user_registration_path, class: "db-settings"%></li>
