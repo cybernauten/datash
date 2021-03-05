@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @project = Project.find(params[:id])
   end
 
@@ -23,20 +24,24 @@ class ProjectsController < ApplicationController
   def new
     #create a new project for the team
     @user = current_user
+    @teams = @user.teams
     @project = Project.new
+    @assignment = Assignment.new
   end
 
   def create
     #create a new project for the team
     @user = current_user
     @project = Project.new(project_params)
-    #@project.users << @user
-    @project.save
-
+    if @project.save!
+      current_user.assignments.create(project_id: @project.id) 
+      redirect_to "/users/#{current_user.id}/projects/#{@project.id}", :notice => "New Project was created"
+    else
     # no need for app/views/restaurants/create.html.erb
-    redirect_to @projects
+      redirect_to "/users/#{current_user.id}/projects", :notice => "An Error occured, please try again"
+    end
   end
-
+  
   def destroy
     #destroy a project from team (and all its files???)
     #question: who should be able to delete a whole project
@@ -45,6 +50,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:team_name, :project_name, :description, :avatar_url)
+    params.require(:project).permit(:team_id, :project_name, :description)
   end
 end

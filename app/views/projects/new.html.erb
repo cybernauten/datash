@@ -2,11 +2,16 @@
 
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
   <h2>CREATE NEW PROJECT</h2>
-  <%= simple_form_for(@user.projects) do |f| %>
-  <%= f.input :team_name %>
-  <%= f.input :project_name %>
-  <%= f.input :description %>
-  <%= f.input :avatar_url %>
+  <%= form_for([@user, @project]) do |f| %>
+  <%= f.label :team_id, "Select your team:" %>
+  <%= f.select :team_id , @user.teams.collect { |team| [team.team_name, team.id] } %>
+  <br>
+  <%= f.label :project_name, "Project Name:" %>
+  <%= f.text_area :project_name %>
+  <br>
+  <%= f.label :description, "Description of your Project:" %>
+  <%= f.text_area :description %>
+  <br>
   <%= f.submit %>
 <% end %>
 </div>
