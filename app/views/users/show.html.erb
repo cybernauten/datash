@@ -1,18 +1,21 @@
 <%= render "shared/dashboard" %>
-<div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h3 class="db-displayname pl-0 pt-5">PROFILE  <%= @creator.display_name.upcase %></h3>
-    <div class="settings-box">
-      <div class="user d-flex flex-wrap">
-          <div class ="display">
-              <p class="input">Display Name:  <%= @creator.display_name %></p>
-              <p class="input">User Name:  <%= @creator.user_name %></p>
-              <p class="input">E-Mail:  <%= @creator.email %></p>
-          </div>
+<div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
+  <div class ="view title d-flex w-100 justify-content-center">
+    <h3 class="db-displayname p-0">PROFILE  <%= @creator.display_name.upcase %></h3>
+  </div>
+  <div class="settings-box" style="color: #ffffff; padding:70px">
+<!--   <div class="settings-box">
+ --><div class="user d-flex flex-wrap">
+      <div class ="display">
+        <p class="input">Display Name:  <%= @creator.display_name %></p>
+        <p class="input">User Name:  <%= @creator.user_name %></p>
+        <p class="input">E-Mail:  <%= @creator.email %></p>
+        <div class="form-actions" style="padding-bottom:25px">
+          <%= link_to "Back to Edit Profile", "/users/edit", class: "btn-white" %>
+          <%#= link_to "back", user_path, class: "btn-white" %>
+        </div>
+      </div>
         <!-- <div style="background-image: url('<%= @creator.avatar_url %>'); height: 100px; width: 100px; background-size: cover; border-radius: 50%; border: white 3px solid;"> -->
-      </div>
-      <div>
-        <%= link_to "Edit Profile", "/users/#{current_user.id}/edit", class: "btn-blue ml-3" %>
-        <%= link_to "back", user_path, class: "btn-white" %>
-      </div>
+    </div>
   </div>
 </div>
