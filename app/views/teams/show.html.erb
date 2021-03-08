@@ -5,24 +5,22 @@
     <h2><%= @team.team_name %></h2>
   </div>
   <% @user.projects.each do |project| %>
-    <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects" do %>
+    <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
       <% if @team.id == project.team_id %>  
         <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
           <div class="card-team">
             <h3 class="project-name justify-content-between"><%= project.project_name%></h3>
             <div class="d-flex justify-content-around">
               <div class="team-info d-inline-block w-49 p-3 text-left">
-                <p class="team-show-info">Latest Update</p>
+                <p class="team-show-info"><%= project.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %></p>
                 </br>
-                <p class="team-show-info">Client</p>
-                <p class="team-show-info">Company</p>
+                <p class="team-show-info"><%= project.description %></p>
               </div>
               <div class="doc-names d-inline-block w-49 p-3 text-left">
-                <p class="team-show-doc-names">doc name</p>
-                <p class="team-show-doc-names">doc name</p>
-                <p class="team-show-doc-names">doc name</p>
-              </div>
-            </div> 
+                <% project.documents.each do |document| %>
+                  <p class="team-show-doc-names"><%= document.file_name.last(3) %></p>
+                <% end %>
+              </div> 
           </div>
         </div>
       <% end %>
