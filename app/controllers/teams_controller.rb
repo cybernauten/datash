@@ -15,11 +15,20 @@ class TeamsController < ApplicationController
   def new
     @user = current_user
     @team = Team.new
+    @linked_connection = LinkedConnection.new
     #authorize @team
   end
 
   def create
-    authorize @team
+    @user = current_user
+    @team = Team.new(team_params)
+    if @team.save!
+      current_user.linked_connections.create(team_id: @team.id) 
+      redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "New Team was created"
+    else
+    # no need for app/views/restaurants/create.html.erb
+      redirect_to "/users/#{current_user.id}/teams", :notice => "An Error occured, please try again"
+    end
   end
 
   def edit

@@ -7,7 +7,7 @@
   <%= f.select :team_id , @user.teams.collect { |team| [team.team_name, team.id] } %>
   <br>
   <%= f.label :project_name, "Project Name:" %>
-  <%= f.text_area :project_name %>
+  <%= f.text_field :project_name %>
   <br>
   <%= f.label :description, "Description of your Project:" %>
   <%= f.text_area :description %>
