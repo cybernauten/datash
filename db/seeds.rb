@@ -6,9 +6,9 @@ Project.delete_all
 Team.delete_all
 User.delete_all
 
-user_one = User.create!(email: 'soph2@example.com', user_name:'sophia', display_name: 'soph', password: '123456', avatar_url: "https://avatars0.githubusercontent.com/u/70213059?v=4.jpg")
-user_two = User.create!(email: 'anna2@example.com', user_name:'anna-maria', display_name: 'anna', password: '123456', avatar_url: "https://avatars.githubusercontent.com/u/71718597?s=400&u=5b0bc18350d47b6266234a829a1e83159042d7a6&v=4" )
-user_three = User.create!(email: 'ilies2@example.com', user_name:'ilies', display_name: 'ilies', password: '123456', avatar_url: "https://images.unsplash.com/photo-1571249104671-f5537fb3e137?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fGF2YXRhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60")
+user_one = User.create!(email: 'soph2@example.com', user_name:'sophia', password: '123456', avatar_url: "https://avatars0.githubusercontent.com/u/70213059?v=4.jpg")
+user_two = User.create!(email: 'anna2@example.com', user_name:'anna-maria', password: '123456', avatar_url: "https://avatars.githubusercontent.com/u/71718597?s=400&u=5b0bc18350d47b6266234a829a1e83159042d7a6&v=4" )
+user_three = User.create!(email: 'ilies2@example.com', user_name:'ilies', password: '123456', avatar_url: "https://images.unsplash.com/photo-1571249104671-f5537fb3e137?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fGF2YXRhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60")
 
 team_one = Team.create!(team_name:'team_one', description: 'marketing team', avatar_url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHRlYW18ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60")
 team_two = Team.create!(team_name:'team_two', description: 'HR team for recruiting', avatar_url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHRlYW18ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60")
