@@ -25,49 +25,53 @@
     </div>
   <% end %>
   <br>
-    <% if params[:search].present? %>
-      <div id="timeline-content">
-        <ul class="timeline">
-          <% if @teams %>
-            <% @teams.each do |team| %>
-              <li><%= team.team_name %></li>
-            <% end %>
-          <% end %>
-          <% if @documents %>
-            <% @documents.each do |document| %>
-              <li><%= document.file_name %></li>
-            <% end %>
-          <% end %>
-          <% if @projects %>
-            <% @projects.each do |project| %>
-              <li><%= project.project_name %></li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
+    <% if @user.documents.empty? %>
+      <center><h1>start making history</h1></center>
     <% else %>
-      <div id="timeline-content">
-        <ul class="timeline">
-          <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Edited <%= @user.documents.last.file_name %></h3>
-            <p>edited file size</p>
-          </li>
-          <li class="event" data-date="<%= @user.documents.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Added <%= @user.documents.last.file_name %></h3>
-            <p>added to <%=  @user.documents.last.project.project_name %></p>
-          </li>
-          <li class="event" id="date" data-date="<%= @user.projects.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Created <%= @user.projects.last.project_name %></h3>
-            <p>assigned to <%=  Team.find_by(params[:id]).team_name %></p>
-                            <%#= Team.find(Cooperation.where(project_id: @user.projects.last.id)[0].team_id).team_name %>
-          </li>
-​
-          <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-​
-            <h3>Joined <%= @user.teams.last.team_name %></h3>
-            <p>This team has <%= @user.teams.last.users.count %> contributors</p> <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
-          </li>
-        </ul>
-      </div>
+      <% if params[:search].present? %>
+        <div id="timeline-content">
+          <ul class="timeline">
+            <% if @teams %>
+              <% @teams.each do |team| %>
+                <li><%= team.team_name %></li>
+              <% end %>
+            <% end %>
+            <% if @documents %>
+              <% @documents.each do |document| %>
+                <li><%= document.file_name %></li>
+              <% end %>
+            <% end %>
+            <% if @projects %>
+              <% @projects.each do |project| %>
+                <li><%= project.project_name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <div id="timeline-content">
+          <ul class="timeline">
+            <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+              <h3>Edited <%= @user.documents.last.file_name %></h3>
+              <p>edited file size</p>
+            </li>
+            <li class="event" data-date="<%= @user.documents.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+              <h3>Added <%= @user.documents.last.file_name %></h3>
+              <p>added to <%=  @user.documents.last.project.project_name %></p>
+            </li>
+            <li class="event" id="date" data-date="<%= @user.projects.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+              <h3>Created <%= @user.projects.last.project_name %></h3>
+              <p>assigned to <%=  Team.find_by(params[:id]).team_name %></p>
+                              <%#= Team.find(Cooperation.where(project_id: @user.projects.last.id)[0].team_id).team_name %>
+            </li>
+  ​
+            <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+  ​
+              <h3>Joined <%= @user.teams.last.team_name %></h3>
+              <p>This team has <%= @user.teams.last.users.count %> contributors</p> <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
+            </li>
+          </ul>
+        </div>
+      <% end %>
     <% end %>
 </div>

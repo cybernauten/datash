@@ -2,10 +2,22 @@
   <ul>
     <li>
       <h2><% @user = current_user %></h2>
-      <img style="background-image: url('<%= @user.avatar_url %>'); width: 140px; height: 140px; border-radius: 50%; border: black 2px solid; margin-top: 66px; background-size: 100%; padding: 69px;">
+      <% if @user.avatar_url.present? %>
+        <img style="background-image: url('<%= @user.avatar_url %>')" class="avatar-large">
+      <%# elsif %>
+        <%#= cl_image_tag @user.photo.key %>
+      <% else %>
+        <%= cl_image_tag("tia4bcatlumaq2wqorbz", class: "avatar-large p-0") %>
+      <% end %>
     </li>
     <br>
-    <li class="db-displayname"> <%= @user.display_name.upcase %></li>
+    <li class="db-displayname">
+      <% if @user.user_name.present? %>
+        <%= @user.user_name.upcase %>
+      <% else %>
+        <%= @user.email.split('@')[0] %>
+      <% end %>
+    </li>
     <li class="db-role">#{role}</li>
     <br>
 
