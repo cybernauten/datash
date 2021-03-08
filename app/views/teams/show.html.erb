@@ -5,7 +5,7 @@
     <h2><%= @team.team_name %></h2>
   </div>
   <% @user.projects.each do |project| %>
-    <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects" do %>
+    <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
       <% if @team.id == project.team_id %>  
         <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
           <div class="card-team">
