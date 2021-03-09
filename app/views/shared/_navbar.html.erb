@@ -9,24 +9,28 @@
 
 
   <div class="collapse navbar-collapse">
-          <div class="nav-item dropdown pl-4">
-        <% if user_signed_in? && current_user.avatar_url.present?%>
-          <%= image_tag current_user.avatar_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% elsif user_signed_in? && !current_user.avatar_url.present? %>
-          <%= cl_image_tag("tia4bcatlumaq2wqorbz", class: "avatar dropdown-toggle") %>
-        <% else %>
-          <div class="nav-button">
-              <%= link_to "Login", new_user_session_path, class: "btn-blue" %>
-              <%= link_to "Register", new_user_registration_path, class: "btn-white ml-3" %>
-          </div>
-        <% end %>
-        <div class="dropdown-menu dropdown-menu-right pl-4" aria-labelledby="navbarDropdown">
-          <% if user_signed_in? %>
-            <%= link_to "Edit profile", "/users/:id/edit", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          <% end %>
+    <div class="nav-item dropdown pl-4">
+      <% if user_signed_in? && current_user.avatar_url.present?%>
+        <%= image_tag current_user.avatar_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% elsif user_signed_in? && current_user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "avatar dropdown-toggle" %>
+      <% elsif !user_signed_in? %>
+        <%= cl_image_tag("tia4bcatlumaq2wqorbz", class: "avatar dropdown-toggle") %>
+      <% else %>
+        <div class="nav-button">
+            <%= link_to "Login", new_user_session_path, class: "btn-blue" %>
+            <%= link_to "Register", new_user_registration_path, class: "btn-white ml-3" %>
         </div>
+      <% end %>
+
+      <div class="dropdown-menu dropdown-menu-right pl-4" aria-labelledby="navbarDropdown">
+        <% if user_signed_in? %>
+          <%= link_to "Edit profile", "/users/:id/edit", class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <% end %>
       </div>
+    </div>
+
     <!-- <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
