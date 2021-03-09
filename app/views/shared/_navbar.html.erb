@@ -14,7 +14,7 @@
         <%= image_tag current_user.avatar_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% elsif user_signed_in? && current_user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, class: "avatar dropdown-toggle" %>
-      <% elsif !user_signed_in? %>
+      <% elsif user_signed_in? && !current_user.avatar_url.present? && !current_user.photo.attached?  %>
         <%= cl_image_tag("tia4bcatlumaq2wqorbz", class: "avatar dropdown-toggle") %>
       <% else %>
         <div class="nav-button">
