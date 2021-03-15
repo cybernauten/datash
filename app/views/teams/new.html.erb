@@ -12,9 +12,6 @@
       <%= f.label :avatar_url, "Choose your Team-Avatar:" %>
       <%= f.url_field :avatar_url %>
       <br>
-      <%= f.label :user_id, "Add Users to your Team" %>
-      <%= f.select :user_ids, @users.each.collect { |user| [user.user_name || user.email] } %>
-      <br>
       <%= f.submit %>
     <% end %>
 </div>

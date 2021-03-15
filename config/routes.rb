@@ -11,11 +11,9 @@ Rails.application.routes.draw do
           resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
           resources :assignments, only:[:index, :show]
           resources :projects
-          resources :teams, except:[:destroy] do
-            resources :linkedconnections, only:[:create, :update]
-            #resources :cooperations, only:[:create, :update]
+          resources :teams do
+            resources :linkedconnections, only:[:new, :create, :update]
             resources :projects do
-              #resources :cooperations, only:[:create, :update]
               resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
               resources :assignments, only:[:create, :update]
             end
