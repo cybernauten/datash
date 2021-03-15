@@ -12,10 +12,13 @@
           <p class="doc-names">doc</p>
           <p class="doc-names">doc</p>
           <p class="doc-names">doc</p>
-          <p class="doc-names">doc</p>
+            <% team.users.each do |user| %>
+              <p class="doc-names"><%= user.user_name %></p> 
+            <% end %>
           </div>
           <h3 class="team-name"><%= team.team_name %></h3>
           <p class="description"><%= team.description %></p>
+          <%=  %>
         </div>
       <% end %>
     <% end %>
@@ -26,5 +29,4 @@
     <% render "shared/newButton" %>
     <% end %>
   </div>
-
 </div>

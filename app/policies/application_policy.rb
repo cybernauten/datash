@@ -21,7 +21,11 @@ class ApplicationPolicy
   def new?
     create?
   end
-
+  
+  def addUserToTeam?
+    false
+  end
+  
   def update?
     false
   end
@@ -33,6 +37,7 @@ class ApplicationPolicy
   def destroy?
     false
   end
+
 
   class Scope
     attr_reader :user, :scope
