@@ -9,7 +9,7 @@
   </div>
 
   <div class="documents-container w-100 mt-4">
-    <center><table class="sortable">
+    <center><table class="sortable"></center>
         <thead>
           <tr>
             <th><h2>Name</h2></th>
@@ -22,21 +22,20 @@
       <tbody>
         <% @user.documents.each do |data| %>
             <tr>
-              <td><p><%= data.file_name %></p></td>
-              <td><p><%= data.file_type %></p></td>
-              <td><p><%= data.creation_date %></p></td>
+              <td><p><%= link_to image_tag(data.doc.url, class: 'media-object'), data.doc_file_name, target: '_blank' %> <%= data.doc_file_name %></p></td>
+              <td><p><%= data.doc_content_type %></p></td>
+              <td><p><%= data.created_at %></p></td>
               <td><p><%= data.file_size %></p></td>
               <td><p><%= data.project.project_name %></p></td>
             </tr>
         <% end %>
       <tbody>
-    </table></center>
+    </table>
   </div>
 
   <div>
-  <%= link_to new_user_document_path do %>
-    <% render "shared/newButton" %>
+    <%= link_to new_user_document_path do %>
+      <% render "shared/newButton" %>
     <% end %>
   </div>
-
 </div>
