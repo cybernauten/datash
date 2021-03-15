@@ -22,9 +22,16 @@
       <tbody>
         <% @user.documents.each do |data| %>
             <tr>
-              <td><p><%= link_to image_tag(data.doc.url, class: 'media-object'), data.doc_file_name, target: '_blank' %> <%= data.doc_file_name %></p></td>
+              <td><p>
+                <%= link_to cl_image_tag("tia4bcatlumaq2wqorbz", class: 'click-to-open-icon'), data.doc_file_name, target: '_blank' %>
+                <% if data.doc_file_name == nil %>
+                  <%= data.file_name %>
+                <% else %>
+                  <%= data.doc_file_name.sub(/\..*/, '') %>
+                <% end %>
+              </p></td>
               <td><p><%= data.doc_content_type %></p></td>
-              <td><p><%= data.created_at %></p></td>
+              <td><p><%= data.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %></p></td>
               <td><p><%= data.file_size %></p></td>
               <td><p><%= data.project.project_name %></p></td>
             </tr>
