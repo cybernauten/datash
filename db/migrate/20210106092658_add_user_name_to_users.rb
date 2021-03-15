@@ -1,6 +1,6 @@
 class AddUserNameToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :users, :user_name, :string, default: "#{current_user.email}"
+    add_column :users, :user_name, :string, default: "Maximiliane Mustermann"
     #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
   end
 end

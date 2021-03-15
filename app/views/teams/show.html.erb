@@ -3,6 +3,9 @@
 <div style="margin-left:25%; margin-right: 6%; padding:86px 28px;height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
     <h2><%= @team.team_name %></h2>
+    <% @team.users.each do |user| %>
+    <h3><%= user.user_name %></h3> 
+    <% end %>
   </div>
   <% @user.projects.each do |project| %>
     <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
@@ -21,9 +24,15 @@
                   <p class="team-show-doc-names"><%= document.file_name.last(3) %></p>
                 <% end %>
               </div> 
+            </div>
           </div>
         </div>
       <% end %>
     <% end %>
-  <% end %>  
+  <% end %>
+  <div>
+  <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new" do %>
+    <% render "shared/newButton" %>
+    <% end %>
+  </div>
 </div>

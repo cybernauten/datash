@@ -2,8 +2,10 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @users = User.all
     @user = current_user
     @teams = policy_scope(Team)
+    @linked_connection = LinkedConnection.all
   end
 
   def show
@@ -11,19 +13,15 @@ class TeamsController < ApplicationController
   end
 
   def new
-    @users = User.all
     @user = current_user
     @team = Team.new
     @linked_connection = LinkedConnection.new
-    @team.users << User.find(params[:user_id])
   end
 
   def create
-    @user = current_user
     @team = Team.new(team_params)
-    @team.users << User.find(params[:user_id])
     if @team.save!
-      current_user.linked_connections.create(team_id: @team.id) 
+      current_user.linked_connections.create(team_id: @team.id)
       redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "New Team was created"
     else
     # no need for app/views/restaurants/create.html.erb
@@ -35,11 +33,20 @@ class TeamsController < ApplicationController
   end
 
   def update
+    @team = Team.find(params[:id])
+    @linked_connection = []
+    params[:team][:user_ids].try(:delete_if, &:blank?).each do |id|
+      @linked_connection << LinkedConnection.new(team_id: @team.id, user_id: id)
+    end
+      @linked_connection.each do |linkedconnection|
+        linkedconnection.save!
+      end
+    redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "New Teammember has been added"
   end
 
   private
 
   def team_params
-    params.require(:team).permit(:team_name, :description, :avatar_url)
+    params.require(:team).permit(:team_name, :description, :avatar_url, :user_ids)
   end
 end
