@@ -1,0 +1,8 @@
+<%= render "shared/dashboard" %>
+<div style="margin-left:25%;padding:86px 28px;height:1000px;">
+  <h2>Add new Teammembers to your Project</h2>
+    <%= simple_form_for([@user, @project]) do |f| %>
+    <%= f.association :users, collection: @team.users, label: "Who should collaborate in this Project:", label_method: :user_name %>
+    <%= f.submit %>
+    <% end %>
+</div>

@@ -35,4 +35,9 @@
     <% render "shared/newButton" %>
     <% end %>
   </div>
+  <div>
+  <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/new" do %>
+    <% render "shared/newButton" %>
+    <% end %>
+  </div>
 </div>
