@@ -9,12 +9,26 @@
       <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}" do %>
         <div class="card-team">
           <h3 class="project-name"><%= project.project_name.upcase %></h3>
-          <p class="description"><%= project.description %></p>
-          <% project.users.each do |user| %>
-          <p class="username"><%= user.user_name %></p>
-          <% end %>
+          <p class="description justify-content-between"><%= project.description %></p>
+          <div class="d-flex justify-content-around">
+            <div class="doc-names d-inline-block w-49 p-3 text-left">
+              <% project.users.each do |user| %>
+                <p class="username"><%= user.user_name %></p>
+              <% end %>
+            </div>
+            <div class="team-info d-inline-block w-49 p-3 text-left">
+              <p class="recent" style="padding-left: 80px;">Docs</p>
+              <% if project.documents.empty? %>
+                <p class="doc-names justify-content-between" style="padding-left: 80px;">no docs</p>
+              <% else %>
+                <% project.documents.each do |document| %>
+                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.file_name.last(3) %></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
-      <% end %>  
+      <% end %>
     <% end %>
   </div>
 

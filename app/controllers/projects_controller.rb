@@ -34,14 +34,14 @@ class ProjectsController < ApplicationController
     @user = current_user
     @project = Project.new(project_params)
     if @project.save!
-      current_user.assignments.create(project_id: @project.id) 
+      current_user.assignments.create(project_id: @project.id)
       redirect_to "/users/#{current_user.id}/projects/#{@project.id}", :notice => "New Project was created"
     else
     # no need for app/views/restaurants/create.html.erb
       redirect_to "/users/#{current_user.id}/projects", :notice => "An Error occured, please try again"
     end
   end
-  
+
   def destroy
     #destroy a project from team (and all its files???)
     #question: who should be able to delete a whole project
