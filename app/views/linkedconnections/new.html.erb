@@ -2,7 +2,7 @@
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
   <h2>Add Teammembers</h2>
     <%= simple_form_for([@user, @team]) do |f| %>
-    <%= f.association :users, { label: "#{@user.user_name}, who do you want to add" }  %>
+    <%= f.association :users, label: "Who should collaborate in this team:", label_method: :user_name %>
     <%= f.submit %>
     <% end %>
 </div>
