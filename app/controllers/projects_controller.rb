@@ -18,7 +18,16 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    # change something (most likely a file) in this project where I am assigned to
+  # change something (most likely a file) in this project where I am assigned to
+    @project = Project.find(params[:id])
+    @assignments = []
+    params[:project][:user_ids].try(:delete_if, &:blank?).each do |id|
+      @assignments << Assignment.new(project_id: @project.id, user_id: id)
+    end
+      @assignments.each do |assignment|
+        assignment.save!
+      end
+    redirect_to "/users/#{current_user.id}/projects/#{@project.id}", :notice => "New member has been added to project"
   end
 
   def new
