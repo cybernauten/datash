@@ -23,7 +23,7 @@
   </div>
 </div>
 <div>
-  <%= link_to "/users/#{@user.id}/projects/#{@project.id}/assignments/new" do %>
+  <%= link_to "/users/#{@user.id}/team/#{params[:team_id]}/projects/assignments/new" do %>
   <% render "shared/newButton" %>
   <% end %>
 </div>
