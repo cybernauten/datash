@@ -8,7 +8,10 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @document = Document.find(params[:id])
+    # @project = Project.find(params[:project_id])
+    # @team = Team.find(params[:id])
   end
 
   def new
@@ -31,9 +34,11 @@ class DocumentsController < ApplicationController
     # File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
     #   file.write(uploaded_file.read)
     # end
-
   end
 
+  # def get_doc
+  #   send_file '/path/to.png', :type => 'image/png', :disposition => 'inline', target: '_blank'
+  # end
   # def upload
   #   #uploaded_file = params[:user][:doc]
   # end
@@ -59,6 +64,6 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:file_name, :file_type, :creation_date, :update_date, :file_size, :doc, :project_id)
+    params.require(:document).permit(:file_name, :file_type, :creation_date, :update_date, :file_size, :doc, :id, :project_id, :team_id)
   end
 end

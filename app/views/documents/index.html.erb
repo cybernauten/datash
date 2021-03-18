@@ -23,7 +23,7 @@
         <% @user.documents.each do |data| %>
             <tr>
               <td style="width: 20%;"><p class="td-name-column">
-                <%= link_to cl_image_tag("tia4bcatlumaq2wqorbz", class: 'click-to-open-icon'), data.doc_file_name, target: '_blank' %>
+                <%= link_to cl_image_tag("tia4bcatlumaq2wqorbz", class: 'click-to-open-icon'), "/users/#{@user.id}/documents/#{data.id}", target: '_blank' %>
                 <% if data.doc_file_name == nil %>
                   <%= data.file_name %>
                 <% else %>
