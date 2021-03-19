@@ -1,15 +1,7 @@
 class AssignmentPolicy < ApplicationPolicy
-    class Scope < Scope
-      def resolve
-        scope.all
-      end
+  class Scope < Scope
+    def resolve
+      scope.all
     end
-  
-    # def create?
-    #   return true
-    # end
-  
-    # def update?
-    #   record.user_id == user.id
-    # end
   end
+end

@@ -4,12 +4,4 @@ class TeamPolicy < ApplicationPolicy
       scope.all
     end
   end
-
-  # def create?
-  #   return true
-  # end
-
-  # def update?
-  #   record.user_id == user.id
-  # end
 end

@@ -22,10 +22,6 @@ class ApplicationPolicy
     create?
   end
   
-  def addUserToTeam?
-    false
-  end
-  
   def update?
     false
   end
@@ -35,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    record == user
   end
 
 
