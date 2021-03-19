@@ -4,13 +4,16 @@
   <h2>PREVIEW Document</h2>
   </div>
   <p class="doc-names"><%= @document.doc_file_name %></p>
-  <%# raise %>
-  <% if @document.doc_content_type == "application/pdf" %>
-    <p>hold on...not displayed yet</p>
-  <% end %>
 
-  <%= link_to cl_image_tag(@document.doc.url, class: "doc-image-preview"), @document.doc_file_name, target: '_blank' %>
-  <%# raise %>
-  <%#= cl_image_tag("tia4bcatlumaq2wqorbz", class: "avatar-large p-0") %>
+  <% if @document.doc? %>
+    <% if @document.doc_content_type == "image/png" %>
+      <%= image_tag @document.doc.url, class: "doc-image-preview" %>
+    <% elsif @document.doc_content_type == "application/pdf"%>
+      <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>"></iframe>
+      <%#= link_to @document.doc.url, @document.doc.url %>
+    <% else %>
+      <p>sorry, somthing went wrong</p>
+    <% end %>
+  <% end %>
 </div>
 
