@@ -10,6 +10,7 @@ class DocumentsController < ApplicationController
   def show
     @user = current_user
     @document = Document.find(params[:id])
+    #send_file(@document.doc.url, :file_name => "#{@document.doc_file_name}", :disposition => 'inline', :type => "application/pdf")
     # @project = Project.find(params[:project_id])
     # @team = Team.find(params[:id])
   end
