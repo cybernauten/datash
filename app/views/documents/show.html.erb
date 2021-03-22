@@ -9,6 +9,7 @@
   <% if @document.doc? %>
     <% if @document.doc_content_type == "image/png" %>
       <%= image_tag @document.doc.url, class: "doc-image-preview" %>
+      <%= link_to @document.doc.url, @document.doc.url %>
     <% elsif @document.doc_content_type == "image/jpeg" %>
       <%= image_tag @document.doc.url, class: "doc-image-preview" %>
     <% elsif @document.doc_content_type == "application/pdf"%>
