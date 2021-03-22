@@ -34,14 +34,26 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @linked_connection = []
     params[:team][:user_ids].try(:delete_if, &:blank?).each do |id|
-      @linked_connection << LinkedConnection.new(team_id: @team.id, user_id: id)
-    end
-      @linked_connection.each do |linkedconnection|
-        linkedconnection.save!
+      @linkedconnection = []
+      if LinkedConnection.where(team_id: @team.id, user_id: id).exists?
+        @linkedconnection << LinkedConnection.where(team_id: @team.id, user_id: id)
+          @linkedconnection.each do |linkedconnection|
+            linkedconnection.each do |lc|
+              lc.destroy
+            end
+        end
+      else
+        @linkedconnection << LinkedConnection.new(team_id: @team.id, user_id: id)
+          @linkedconnection.each do |linkedconnection|
+            linkedconnection.save!
+        end
       end
-    redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "New Teammember has been added"
+    end
+    redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "Teammember has been updated"
+      # @linkedconnection.each do |linkedconnection|
+      #   linkedconnection.save!
+      # end
   end
 
   def destroy

@@ -20,5 +20,9 @@ class LinkedconnectionsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    authorize @user
+    @team = Team.find(params[:team_id])
+    @users = @team.users
   end
 end

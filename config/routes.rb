@@ -12,7 +12,7 @@ Rails.application.routes.draw do
           resources :assignments, only:[:index, :show]
           resources :projects
           resources :teams do
-            resources :linkedconnections, only:[:new, :create, :update]
+            resources :linkedconnections, only:[:new, :create, :update, :destroy]
             resources :projects do
               resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
               resources :assignments, only:[:create, :update, :new]
