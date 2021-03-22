@@ -7,10 +7,16 @@
 
   <% if @document.doc? %>
     <% if @document.doc_content_type == "image/png" %>
-      <%= image_tag @document.doc.url, class: "doc-image-preview" %>
+<!--       <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>"></iframe>
+ --><%= image_tag @document.doc.url, class: "doc-image-preview" %>
     <% elsif @document.doc_content_type == "application/pdf"%>
       <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>"></iframe>
       <%#= link_to @document.doc.url, @document.doc.url %>
+    <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
+      <p>WORD documents download automatically...</p>
+      <iframe src="https://docs.google.com/gview?url=http://remote.url.tld/path/to/<%=@document.doc.url%>&embedded=true"></iframe>
+<!--       below is the link to click and download document file
+ -->  <%= link_to @document.doc.url, @document.doc.url %>
     <% else %>
       <p>sorry, somthing went wrong</p>
     <% end %>

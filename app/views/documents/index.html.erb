@@ -27,7 +27,7 @@
                 <% if data.doc_file_name == nil %>
                   <%= data.file_name %>
                 <% else %>
-                  <%= data.doc_file_name.sub(/\..*/, '').truncate(28) %>
+                  <%= data.doc_file_name.sub(/\..*/, '').truncate(20) %>
                 <% end %>
               </p></td>
               <td style="width: 6%;"><p><%= data.doc_content_type %></p></td>
