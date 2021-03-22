@@ -44,6 +44,17 @@ class TeamsController < ApplicationController
     redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "New Teammember has been added"
   end
 
+  def destroy
+    @user = current_user
+    authorize @user
+    @team = Team.find(params[:id])
+    if @team.destroy
+      redirect_to "/users/#{current_user.id}/teams", :notice => "Team successfully deleted"
+    else
+      redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "Team could not be deleted, please try again"
+    end
+  end
+
   private
 
   def team_params

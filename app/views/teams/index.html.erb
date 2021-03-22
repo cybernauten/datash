@@ -7,6 +7,11 @@
     <% @user.teams.each do |team| %>
       <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
         <div class="card-team">
+          <div>
+            <%= link_to "/users/#{@user.id}/teams/#{team.id}", method: :delete do %>
+              <% render "shared/deleteButton" %>
+            <% end %>
+          </div>
           <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
           <p class="recent">Members</p>
             <% team.users.each do |user| %>
