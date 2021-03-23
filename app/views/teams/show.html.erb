@@ -33,8 +33,18 @@
                 <% project.documents.each do |document| %>
                   <p class="team-show-doc-names"><%= document.file_name.last(3) %></p>
                 <% end %>
-              </div> 
+              </div>
             </div>
+            <div>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", method: :delete do %>
+                <% render "shared/deleteButton" %>
+              <% end %>
+            </div> 
+            <div>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/destroy", method: :delete do %>
+                <% render "shared/deleteButton" %>
+              <% end %>
+            </div> 
           </div>
         </div>
       <% end %>
