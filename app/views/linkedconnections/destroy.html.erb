@@ -3,7 +3,7 @@
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
   <h2>Remove Teammembers</h2>
     <%= simple_form_for([@user, @team]) do |f| %>
-    <%= f.association :users, label: "Who do you want to remove from the team:", label_method: :user_name, method: :delete %>
+    <%= f.association :users, collection: @team.users, label: "Who do you want to remove from the team:", label_method: :user_name %>
     <%= f.submit %>
     <% end %>
 </div>

@@ -72,3 +72,5 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
 gem "actionpack", ">= 6.0.3.5"
 gem "activerecord", ">= 6.0.3.5"
+
+gem 'prawn', '~> 2.4'
