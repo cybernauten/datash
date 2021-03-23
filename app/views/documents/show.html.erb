@@ -9,19 +9,25 @@
   <% if @document.doc? %>
     <% if @document.doc_content_type == "image/png" %>
       <%= image_tag @document.doc.url, class: "doc-image-preview" %>
-      <%= link_to @document.doc.url, @document.doc.url %>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
     <% elsif @document.doc_content_type == "image/jpeg" %>
       <%= image_tag @document.doc.url, class: "doc-image-preview" %>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
     <% elsif @document.doc_content_type == "application/pdf"%>
       <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>"></iframe>
-      <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
+    <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
         <div style="width: 100%;" align="center">
           <p>Sorry, you will not be able to open the Word doc without downloading it..Click link to download the Word doc.</p>
-          <%= link_to @document.doc.url, @document.doc.url %>
+          <%= link_to @document.doc.url, download: true do %>
+            <%= render "shared/downloadButton" %>
+          <% end %>
         </div>
     <% else %>
-      <p>sorry, somthing went wrong</p>
+      <p>Sorry, somthing went wrong</p>
     <% end %>
   <% end %>
 </div>
-
