@@ -28,27 +28,7 @@ class DocumentsController < ApplicationController
       # :notice => "Document upload failed"
       render :new
     end
-    # uploaded_file = params[:doc]
-    # File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-    #   file.write(uploaded_file.read)
-    # end
   end
-
-  # def get_doc
-  #   send_file '/path/to.png', :type => 'image/png', :disposition => 'inline', target: '_blank'
-  # end
-  # def upload
-  #   #uploaded_file = params[:user][:doc]
-  # end
-
-  # def download
-  #   upload = Upload.find(params[:id])
-  #   send_file upload.uploaded.path,
-  #     :file_name => upload.uploaded_file_name,
-  #     :file_type => upload.uploaded_content_type,
-  #     :disposition => 'attachment'
-  #   flash[:notice] = "Your file has been downloaded"
-  # end
 
   def update
   end
