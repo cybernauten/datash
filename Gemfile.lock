@@ -350,7 +350,6 @@ DEPENDENCIES
   nokogiri (>= 1.11.0.rc4)
   paperclip (~> 5.0.0)
   pg (>= 0.18, < 2.0)
-  prawn (~> 2.4)
   pry-byebug
   pry-rails
   puma (~> 4.1)
