@@ -50,10 +50,7 @@ class TeamsController < ApplicationController
         end
       end
     end
-    redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "Teammember has been updated"
-      # @linkedconnection.each do |linkedconnection|
-      #   linkedconnection.save!
-      # end
+    redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "Team has been updated"
   end
 
   def destroy
