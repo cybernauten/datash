@@ -5,26 +5,26 @@
   </div>
   <div class="team-cards-container d-flex w-100">
     <% @user.teams.each do |team| %>
-      <%= link_to "/users/#{@user.id}/teams/#{team.id}", method: :get do %>
+      <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
         <div class="card-team">
           <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
-            <div>
-              <%= link_to "/users/#{@user.id}/teams/#{team.id}", method: :delete do %>
-                <% render "shared/deleteButton" %>
-              <% end %>
-            </div>
             <p class="recent">Members</p>
             <% team.users.each do |user| %>
               <p class="doc-names"><%= user.user_name %></p>
             <% end %>
-            <div>
-              <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/destroy", method: :delete do %>
-                <% render "shared/deleteButton" %>
-              <% end %>
-            </div>
           </div>
           <h3 class="team-name"><%= team.team_name %></h3>
           <p class="description"><%= team.description %></p>
+          <div>
+            <%= link_to "/users/#{@user.id}/teams/#{team.id}", method: :delete do %>
+              <% render "shared/deleteButton" %>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/destroy", method: :delete do %>
+              <% render "shared/deleteButton" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     <% end %>

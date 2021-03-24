@@ -9,13 +9,13 @@ Rails.application.routes.draw do
       resources :users do
           resources :linkedconnections, only:[:index, :show]
           resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
-          resources :assignments, only:[:index, :show]
+          resources :assignments, only:[:create, :update, :new, :destroy]
           resources :projects
           resources :teams do
             resources :linkedconnections, only:[:new, :create, :update, :destroy]
             resources :projects do
               resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
-              resources :assignments, only:[:create, :update, :new]
+              resources :assignments, only:[:create, :update, :new, :destroy]
             end
           end
         get 'recent', to: 'pages#recent'

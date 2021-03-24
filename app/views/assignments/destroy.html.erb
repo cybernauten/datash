@@ -1,0 +1,9 @@
+<%= render "shared/dashboard" %>
+
+<div style="margin-left:25%;padding:86px 28px;height:1000px;">
+  <h2>Remove Teammembers from Project</h2>
+    <%= simple_form_for([@user, @team, @project]) do |f| %>
+    <%= f.association :users, collection: @project.users, label: "Who do you want to remove from the Project:", label_method: :user_name %>
+    <%= f.submit %>
+    <% end %>
+</div>

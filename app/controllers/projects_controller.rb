@@ -20,14 +20,23 @@ class ProjectsController < ApplicationController
   def update
   # change something (most likely a file) in this project where I am assigned to
     @project = Project.find(params[:id])
-    @assignments = []
     params[:project][:user_ids].try(:delete_if, &:blank?).each do |id|
-      @assignments << Assignment.new(project_id: @project.id, user_id: id)
-    end
-      @assignments.each do |assignment|
-        assignment.save!
+    @assignments = []
+    if Assignment.where(project_id: @project.id, user_id: id).exists?
+      @assignments << Assignment.where(project_id: @project.id, user_id: id)
+        @assignments.each do |assignment|
+          assignment.each do |as|
+            as.destroy
+          end
       end
-    redirect_to "/users/#{current_user.id}/projects/#{@project.id}", :notice => "New member has been added to project"
+    else
+      @assignments << Assignment.new(project_id: @project.id, user_id: id)
+        @assignments.each do |assignment|
+          assignment.save!
+      end
+    end
+  end
+    redirect_to "/users/#{current_user.id}/projects/#{@project.id}", :notice => "Project members successfully changed"
   end
 
   def new
@@ -54,6 +63,15 @@ class ProjectsController < ApplicationController
   def destroy
     #destroy a project from team (and all its files???)
     #question: who should be able to delete a whole project
+    @user = current_user
+    authorize @user
+    @project = Project.find(params[:id])
+    @team = Team.find(@project.team_id)
+    if @project.destroy
+      redirect_to "/users/#{current_user.id}/teams/#{@team.id}/projects", :notice => "Project successfully deleted from #{@team.team_name}"
+    else
+      redirect_to "/users/#{current_user.id}/teams/#{@team.id}/projects", :notice => "Project could not be deleted, please try again"
+    end
   end
 
   private

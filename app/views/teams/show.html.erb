@@ -3,9 +3,19 @@
 <div style="margin-left:25%; margin-right: 6%; padding:86px 28px;height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
     <h2><%= @team.team_name %></h2>
+      <div>
+        <%= link_to "/users/#{@user.id}/teams/#{@team.id}", method: :delete do %>
+          <% render "shared/deleteButton" %>
+        <% end %>
+      </div>
     <% @team.users.each do |user| %>
     <h3><%= user.user_name %></h3> 
     <% end %>
+    <div>
+      <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/destroy", method: :delete do %>
+        <% render "shared/deleteButton" %>
+      <% end %>
+    </div>
   </div>
   <% @user.projects.each do |project| %>
     <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
@@ -23,8 +33,18 @@
                 <% project.documents.each do |document| %>
                   <p class="team-show-doc-names"><%= document.file_name.last(3) %></p>
                 <% end %>
-              </div> 
+              </div>
             </div>
+            <div>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", method: :delete do %>
+                <% render "shared/deleteButton" %>
+              <% end %>
+            </div> 
+            <div>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/destroy", method: :delete do %>
+                <% render "shared/deleteButton" %>
+              <% end %>
+            </div> 
           </div>
         </div>
       <% end %>

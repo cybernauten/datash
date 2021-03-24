@@ -11,4 +11,11 @@ class AssignmentsController < ApplicationController
     
     def create
     end
+
+    def destroy
+      @user = current_user
+      authorize @user
+      @project = Project.find(params[:project_id])
+      @team = Team.find(params[:team_id])
+    end
   end
