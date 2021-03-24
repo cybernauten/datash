@@ -1,31 +1,31 @@
-<%#= render "shared/dashboard" %>
 <div style="padding:86px 28px;height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
-  <h2>PREVIEW Document</h2>
+  <h2>PREVIEW</h2>
   </div>
 
   <p class="preview-doc-name"><%= @document.doc_file_name %></p>
 
   <% if @document.doc? %>
     <% if @document.doc_content_type == "image/png" %>
-      <%= image_tag @document.doc.url, class: "doc-image-preview" %>
       <%= link_to @document.doc.url, download: true do %>
         <%= render "shared/downloadButton" %>
       <% end %>
+      <%= image_tag @document.doc.url, class: "doc-image-preview" %>
     <% elsif @document.doc_content_type == "image/jpeg" %>
-      <%= image_tag @document.doc.url, class: "doc-image-preview" %>
       <%= link_to @document.doc.url, download: true do %>
         <%= render "shared/downloadButton" %>
       <% end %>
+      <%= image_tag @document.doc.url, class: "doc-image-preview" %>
     <% elsif @document.doc_content_type == "application/pdf"%>
+      <br>
       <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>"></iframe>
     <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
         <div style="width: 100%;" align="center">
-          <p>Sorry, you will not be able to open the Word doc without downloading it..Click link to download the Word doc.</p>
+          <p>Due to data security reasons, you cannot view the document without downloading it.</p>
+        </div>
           <%= link_to @document.doc.url, download: true do %>
             <%= render "shared/downloadButton" %>
           <% end %>
-        </div>
     <% else %>
       <p>Sorry, somthing went wrong</p>
     <% end %>
