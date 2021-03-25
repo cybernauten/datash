@@ -21,8 +21,8 @@
             <% end %>
           </div>
           <div>
-            <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/destroy", method: :delete do %>
-              <% render "shared/deleteButton" %>
+            <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new" do %>
+              <% render "shared/editButton" %>
             <% end %>
           </div>
         </div>
