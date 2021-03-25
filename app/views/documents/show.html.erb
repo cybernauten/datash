@@ -31,6 +31,13 @@
         <%= render "shared/downloadButton" %>
       <% end %>
       <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>" style="height:60%; width:60%;margin-left:20%; margin-top: 16px;"></iframe>
+    <% elsif @document.doc_content_type == "application/zip"%>
+      <div style="width: 100%;" align="center">
+        <p>You cannot view the zip file without downloading it.</p>
+      </div>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
     <% else %>
       <p>Sorry, somthing went wrong</p>
     <% end %>
