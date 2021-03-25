@@ -38,6 +38,13 @@
       <%= link_to @document.doc.url, download: true do %>
         <%= render "shared/downloadButton" %>
       <% end %>
+    <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"%>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
+      <div style="width: 100%; margin-top:10px;" align="center">
+        <p>You cannot view the Spreadsheet file without downloading it.</p>
+      </div>
     <% else %>
       <p>Sorry, somthing went wrong</p>
     <% end %>

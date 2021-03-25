@@ -36,6 +36,8 @@
                 <p>
                   <% if data.doc_content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
                     <%= "Word/docx" %>
+                  <% elsif data.doc_content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %>
+                    <%= "Spreadsheet/xlsx" %>
                   <% else %>
                     <%= data.doc_content_type %>
                   <% end %>
