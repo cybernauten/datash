@@ -1,17 +1,27 @@
 <%= render "shared/dashboard" %>
 
 <div style="margin-left:25%;padding:86px 28px;height:1000px;">
-  <h2>CREATE NEW Team</h2>
+  <div class ="view title d-flex w-100 justify-content-center">
+    <h2>CREATE NEW Team</h2>
+  </div>
+  <div style="padding:70px">
     <%= form_for([@user, @team]) do |f| %>
-      <%= f.label :team_name, "Choose your Team Name:" %>
-      <%= f.text_field :team_name %>
+      <div class="form-group">
+        <%= f.label :team_name, "Team Name" %>
+        <%= f.text_field :team_name %>
+      </div>
       <br>
-      <%= f.label :description, "Description of your Team:" %>
-      <%= f.text_area :description %>
+      <div class="form-group">
+        <%= f.label :description, "Team Description" %>
+        <%= f.text_area :description %>
+      </div>
       <br>
-      <%= f.label :avatar_url, "Choose your Team-Avatar:" %>
-      <%= f.url_field :avatar_url %>
+      <div class="form-group">
+        <%= f.label :avatar_url, "Team Avatar" %>
+        <%= f.url_field :avatar_url %>
+      </div>
       <br>
       <%= f.submit %>
     <% end %>
+  </div>
 </div>
