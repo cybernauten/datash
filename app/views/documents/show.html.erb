@@ -18,7 +18,7 @@
       <%= image_tag @document.doc.url, class: "doc-image-preview" %>
     <% elsif @document.doc_content_type == "application/pdf"%>
       <br>
-      <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>"></iframe>
+      <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>" style="height:85%; width:85%;margin-left:7%;" ></iframe>
     <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
         <div style="width: 100%;" align="center">
           <p>Due to data security reasons, you cannot view the document without downloading it.</p>
@@ -26,6 +26,25 @@
           <%= link_to @document.doc.url, download: true do %>
             <%= render "shared/downloadButton" %>
           <% end %>
+    <% elsif @document.doc_content_type == "video/mp4"%>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
+      <iframe class="iframe-pdf-preview" src="<%= @document.doc.url %>" style="height:60%; width:60%;margin-left:20%; margin-top: 16px;"></iframe>
+    <% elsif @document.doc_content_type == "application/zip"%>
+      <div style="width: 100%;" align="center">
+        <p>You cannot view the zip file without downloading it.</p>
+      </div>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
+    <% elsif @document.doc_content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"%>
+      <%= link_to @document.doc.url, download: true do %>
+        <%= render "shared/downloadButton" %>
+      <% end %>
+      <div style="width: 100%; margin-top:10px;" align="center">
+        <p>You cannot view the Spreadsheet file without downloading it.</p>
+      </div>
     <% else %>
       <p>Sorry, somthing went wrong</p>
     <% end %>

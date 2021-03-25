@@ -1,17 +1,27 @@
 <%= render "shared/dashboard" %>
 
 <div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
-  <h2>CREATE NEW PROJECT</h2>
-  <%= form_for([@user, @project]) do |f| %>
-  <%= f.label :team_id, "Select your team:" %>
-  <%= f.select :team_id , @user.teams.collect { |team| [team.team_name, team.id] } %>
-  <br>
-  <%= f.label :project_name, "Project Name:" %>
-  <%= f.text_field :project_name %>
-  <br>
-  <%= f.label :description, "Description of your Project:" %>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.submit %>
-<% end %>
+  <div class ="view title d-flex w-100 justify-content-center">
+    <h2>CREATE NEW PROJECT</h2>
+  </div>
+  <div style="padding:70px">
+    <%= form_for([@user, @project]) do |f| %>
+      <div class="form-group">
+        <%= f.label :team_id, "Select Team" %>
+        <%= f.select :team_id , @user.teams.collect { |team| [team.team_name, team.id] } %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :project_name, "Project Name" %>
+        <%= f.text_field :project_name %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :description, "Project Description" %>
+        <%= f.text_area :description %>
+      </div>
+      <br>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
