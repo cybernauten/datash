@@ -5,17 +5,17 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'pages#home', as: :authenticated_root
+      root 'pages#recent', as: :authenticated_root
       resources :users do
-          resources :linkedconnections, only:[:index, :show]
+          resources :linkedconnections
           resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
-          resources :assignments, only:[:create, :update, :new, :destroy]
+          resources :assignments
           resources :projects
           resources :teams do
-            resources :linkedconnections, only:[:new, :create, :update, :destroy]
+            resources :linkedconnections
             resources :projects do
               resources :documents, only:[:index, :show, :create, :destroy, :edit, :update, :new ]
-              resources :assignments, only:[:create, :update, :new, :destroy]
+              resources :assignments
             end
           end
         get 'recent', to: 'pages#recent'

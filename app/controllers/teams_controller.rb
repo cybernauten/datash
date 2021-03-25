@@ -33,6 +33,7 @@ class TeamsController < ApplicationController
   end
 
   def update
+    # Vorschlag: User hinzufügen/löschen alles in einem View machen -> destroy Methode löschen
     @team = Team.find(params[:id])
     params[:team][:user_ids].try(:delete_if, &:blank?).each do |id|
       @linkedconnection = []
