@@ -12,8 +12,8 @@
     <h3><%= user.user_name %></h3> 
     <% end %>
     <div>
-      <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/destroy", method: :delete do %>
-        <% render "shared/deleteButton" %>
+      <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new" do %>
+        <% render "shared/editButton" %>
       <% end %>
     </div>
   </div>
@@ -41,8 +41,8 @@
               <% end %>
             </div> 
             <div>
-              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/destroy", method: :delete do %>
-                <% render "shared/deleteButton" %>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
+                <% render "shared/editButton" %>
               <% end %>
             </div> 
           </div>
@@ -50,11 +50,6 @@
       <% end %>
     <% end %>
   <% end %>
-  <div>
-  <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new" do %>
-    <% render "shared/newButton" %>
-    <% end %>
-  </div>
   <div>
   <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/new" do %>
     <% render "shared/newButton" %>

@@ -25,15 +25,10 @@
         <% end %>
       </div> 
       <div>
-        <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/destroy", method: :delete do %>
-          <% render "shared/deleteButton" %>
+        <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new" do %>
+          <% render "shared/editButton" %>
         <% end %>
       </div> 
     </div>
   </div>
-</div>
-<div>
-  <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new" do %>
-  <% render "shared/newButton" %>
-  <% end %>
 </div>
