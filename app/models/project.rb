@@ -4,6 +4,4 @@ class Project < ApplicationRecord
   has_many :documents, dependent: :delete_all
   has_many :assignments, dependent: :delete_all
   has_many :users, through: :assignments
-
-  validates :assignments, uniqueness: true
 end
