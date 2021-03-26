@@ -20,7 +20,7 @@
           <% end %>
       </div>
       <div>
-        <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", method: :delete do %>
+        <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", method: :delete, data: { confirm: "You are about to delete #{@project.project_name}. Are you sure?" }  do %>
           <% render "shared/deleteButton" %>
         <% end %>
       </div> 
