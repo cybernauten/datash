@@ -8,17 +8,17 @@
     <%= form_for([@user, @team]) do |f| %>
       <div class="form-group">
         <%= f.label :team_name, "Team Name" %>
-        <%= f.text_field :team_name %>
+        <%= f.text_field :team_name, class: "form-control new-proj-input" %>
       </div>
       <br>
       <div class="form-group">
         <%= f.label :description, "Team Description" %>
-        <%= f.text_area :description %>
+        <%= f.text_area :description,class: "form-control new-proj-input" %>
       </div>
       <br>
       <div class="form-group">
         <%= f.label :avatar_url, "Team Avatar" %>
-        <%= f.url_field :avatar_url %>
+        <%= f.url_field :avatar_url, class: "form-control new-proj-input" %>
       </div>
       <br>
       <%= f.submit %>
