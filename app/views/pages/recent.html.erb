@@ -60,7 +60,7 @@
         <% if @user.projects.present? %>
           <li class="event" id="date" data-date="<%= @user.projects.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <h3>Created <%= @user.projects.last.project_name %></h3>
-            <p>assigned to <%=  Team.find_by(params[:id]).team_name %></p>
+            <p>assigned to <%= Team.find_by(params[:id]).team_name %></p>
           </li>
         ​<% end %>
         <% if @user.teams.present? %>
@@ -68,6 +68,12 @@
             <h3>Joined <%= @user.teams.last.team_name %></h3>
             <p>This team has <%= @user.teams.last.users.count %> contributors</p> <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
           </li>
+<!--           <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+            <%# if @user.teams.last.previous_changes.present? %>
+              <h3>The <%#=  @user.teams.last.order(:updated_at).last.team_name %>was edited</h3>
+              <p>The <%#=  @user.teams.last.previous_changes.first[0] %>was changed</p>
+            <%# end %>
+          </li> -->
         <% end %>
       </ul>
     </div>
