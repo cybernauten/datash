@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
       end
     end
   end
+    @project.update(project_params)
     redirect_to "/users/#{current_user.id}/projects/#{@project.id}", :notice => "Project members successfully changed"
   end
 

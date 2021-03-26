@@ -30,6 +30,8 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    authorize @user
   end
 
   def update
@@ -51,6 +53,7 @@ class TeamsController < ApplicationController
         end
       end
     end
+    @team.update(team_params)
     redirect_to "/users/#{current_user.id}/teams/#{@team.id}", :notice => "Team has been updated"
   end
 

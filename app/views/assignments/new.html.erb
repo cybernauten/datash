@@ -3,6 +3,8 @@
   <h2>Add/Remove Teammembers to/from your Project</h2>
     <%= simple_form_for([@user, @project]) do |f| %>
     <%= f.association :users, collection: @team.users, label: "Collaborators to change:", label_method: :user_name %>
+    <%= f.input :project_name %>
+    <%= f.input :description %>
     <%= f.submit %>
     <% end %>
 </div>

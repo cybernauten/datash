@@ -3,6 +3,8 @@
   <h2>Add Teammembers</h2>
     <%= simple_form_for([@user, @team]) do |f| %>
     <%= f.association :users, label: "Who do you want to add/remove to/from Team:", label_method: :user_name %>
+    <%= f.input :team_name %>
+    <%= f.input :description %>
     <%= f.submit %>
     <% end %>
 </div>
