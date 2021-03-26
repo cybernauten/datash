@@ -37,6 +37,14 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    authorize @user
+    @document = Document.find(params[:id])
+    if @document.destroy
+      redirect_to "/users/#{current_user.id}/documents", :notice => "Document successfully deleted"
+    else
+      redirect_to "/users/#{current_user.id}/documents", :notice => "Document could not be deleted, please try again"
+    end
   end
 
   private
