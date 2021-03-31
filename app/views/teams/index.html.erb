@@ -1,38 +1,37 @@
-<%= render "shared/dashboard" %>
-<div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
-  <div class ="view title d-flex w-100 justify-content-center">
-    <h2>TEAMS</h2>
-  </div>
-  <div class="team-cards-container d-flex w-100">
-    <% @user.teams.each do |team| %>
-      <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
-        <div class="card-team">
-          <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
-            <p class="recent">Members</p>
-            <% team.users.each do |user| %>
-              <p class="doc-names"><%= user.user_name %></p>
-            <% end %>
+<div style="height:1000px;">
+  <div class="team-cards-container">
+    <%= render "shared/dashboard" %>
+    <div class ="view-title d-flex w-100 justify-content-center">
+      <h2 class="header">TEAMS</h2>
+    </div>
+    <div class="Inner-Container">
+      <% @user.teams.each do |team| %>
+        <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
+          <div class="card-team">
+            <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
+              <p class="recent">Members</p>
+              <% team.users.each do |user| %>
+                <p class="doc-names"><%= user.user_name %></p>
+              <% end %>
+            </div>
+            <h3 class="team-name"><%= team.team_name %></h3>
+            <p class="description"><%= team.description %></p>
+            <div class="options">
+              <%= link_to "/users/#{@user.id}/teams/#{team.id}", method: :delete, data: { confirm: "You are about to delete #{team.team_name}. Are you sure?" }  do %>
+                <% render "shared/deleteButton" %>
+              <% end %>
+              <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new" do %>
+                <% render "shared/editButton" %>
+              <% end %>
+            </div>
           </div>
-          <h3 class="team-name"><%= team.team_name %></h3>
-          <p class="description"><%= team.description %></p>
-          <div>
-            <%= link_to "/users/#{@user.id}/teams/#{team.id}", method: :delete, data: { confirm: "You are about to delete #{team.team_name}. Are you sure?" }  do %>
-              <% render "shared/deleteButton" %>
-            <% end %>
-          </div>
-          <div>
-            <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new" do %>
-              <% render "shared/editButton" %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-
-  <div>
-  <%= link_to "/users/#{@user.id}/teams/new" do %>
-    <% render "shared/newButton" %>
+  <div class="new-team">
+    <%= link_to "/users/#{@user.id}/teams/new" do %>
+      <% render "shared/newButton" %>
     <% end %>
   </div>
 </div>
