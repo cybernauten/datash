@@ -11,8 +11,8 @@
           <p class="team-show-info"><%= @project.description %></p>
         </div>
         <div class="doc-names d-inline-block w-49 p-3 text-left">
-        <% @project.documents.each do |document| %>
-          <p class="team-show-doc-names"><%= document.file_name.last(3) %></p>
+        <% @project.documents.last(3).each do |document| %>
+          <p class="team-show-doc-names"><%= document.doc_file_name.truncate(14) %></p>
         <% end %>
         </div>
         <% @project.users.each do |user| %>
@@ -23,12 +23,12 @@
         <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", method: :delete, data: { confirm: "You are about to delete #{@project.project_name}. Are you sure?" }  do %>
           <% render "shared/deleteButton" %>
         <% end %>
-      </div> 
+      </div>
       <div>
         <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new" do %>
           <% render "shared/editButton" %>
         <% end %>
-      </div> 
+      </div>
     </div>
   </div>
 </div>

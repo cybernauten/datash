@@ -17,12 +17,12 @@
               <% end %>
             </div>
             <div class="team-info d-inline-block w-49 p-3 text-left">
-              <p class="recent" style="padding-left: 80px;">Docs</p>
+              <p class="recent" style="padding-left: 80px;">Documents</p>
               <% if project.documents.empty? %>
-                <p class="doc-names justify-content-between" style="padding-left: 80px;">no docs</p>
+                <p class="doc-names justify-content-between" style="padding-left: 80px;">no documents</p>
               <% else %>
-                <% project.documents.each do |document| %>
-                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.file_name.last(3) %></p>
+                <% project.documents.last(3).each do |document| %>
+                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
                 <% end %>
               <% end %>
               <div>
@@ -34,7 +34,7 @@
               <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
                 <% render "shared/editButton" %>
               <% end %>
-            </div> 
+            </div>
             </div>
           </div>
         </div>
