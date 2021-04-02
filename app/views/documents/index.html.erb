@@ -6,6 +6,9 @@
 <div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
     <h2>DOCUMENTS</h2>
+    <%= link_to new_user_document_path do %>
+      <% render "shared/newButton" %>
+    <% end %>
   </div>
 
   <div class="documents-container w-100 mt-4">
@@ -24,12 +27,14 @@
       <tbody>
         <% @user.documents.each do |data| %>
             <tr>
-              <td style="width: 20%;"><p class="td-name-column">
+              <td style="width: 20%;"><p class="td-name-column" title="view <%= data.doc_file_name %>">
                 <%= link_to cl_image_tag("tia4bcatlumaq2wqorbz", class: 'click-to-open-icon'), "/users/#{@user.id}/documents/#{data.id}", target: '_blank' %>
-                <% if data.doc_file_name == nil %>
-                  <%= data.file_name %>
-                <% else %>
-                  <%= data.doc_file_name.sub(/\..*/, '').truncate(20) %>
+                <%= link_to "/users/#{@user.id}/documents/#{data.id}" do %>
+                  <% if data.doc_file_name == nil %>
+                    <%= data.file_name %>
+                  <% else %>
+                    <%= data.doc_file_name.sub(/\..*/, '').truncate(20) %>
+                  <% end %>
                 <% end %>
               </p></td>
               <td style="width: 6%;">
@@ -46,19 +51,13 @@
               <td style="width: 20%;"><p><%= data.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %></p></td>
               <td style="width: 5%;"><p><%= data.doc_file_size %></p></td>
               <td style="width: 14%;"><p><%= data.project.project_name %></p></td>
-              <td style="width: 4%;"><p><%= link_to "/users/#{@user.id}/documents/#{data.id}", method: :delete do %>
+              <td style="width: 4%;" title="delete document"><p><%= link_to "/users/#{@user.id}/documents/#{data.id}", method: :delete do %>
                 <%= render "shared/deleteButton" %>
               <% end %></p></td>
             </tr>
         <% end %>
       <tbody>
     </table>
-  </div>
-
-  <div>
-    <%= link_to new_user_document_path do %>
-      <% render "shared/newButton" %>
-    <% end %>
   </div>
     <%#= link_to "/users/#{@user.id}/documents/#{project.team_id}/projects/#{project.id}", method: :delete do %>
     <%#= link_to new_user_document_path do %>
