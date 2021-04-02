@@ -21,8 +21,8 @@
               <% if project.documents.empty? %>
                 <p class="doc-names justify-content-between" style="padding-left: 80px;">no docs</p>
               <% else %>
-                <% project.documents.each do |document| %>
-                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.file_name.last(3) %></p>
+                <% project.documents.last(3).each do |document| %>
+                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name %></p>
                 <% end %>
               <% end %>
               <div>
@@ -34,7 +34,7 @@
               <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
                 <% render "shared/editButton" %>
               <% end %>
-            </div> 
+            </div>
             </div>
           </div>
         </div>
