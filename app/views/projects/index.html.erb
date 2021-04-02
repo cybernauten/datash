@@ -16,15 +16,6 @@
                 <p class="username"><%= user.user_name %></p>
               <% end %>
             </div>
-            <div class="team-info d-inline-block w-49 p-3 text-left">
-              <p class="recent" style="padding-left: 80px;">Documents</p>
-              <% if project.documents.empty? %>
-                <p class="doc-names justify-content-between" style="padding-left: 80px;">no documents</p>
-              <% else %>
-                <% project.documents.last(3).each do |document| %>
-                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
-                <% end %>
-              <% end %>
               <div>
                 <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" } do %>
                   <% render "shared/deleteButton" %>
@@ -35,6 +26,17 @@
                 <% render "shared/editButton" %>
               <% end %>
             </div>
+            <div class="team-info d-inline-block w-49 p-3 text-left">
+              <p class="recent" style="padding-left: 80px;">Documents</p>
+              <% if project.documents.empty? %>
+                <p class="doc-names justify-content-between" style="padding-left: 80px;">no documents</p>
+              <% else %>
+                <div class="scroll">
+                  <% project.documents.each do |document| %>
+                    <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

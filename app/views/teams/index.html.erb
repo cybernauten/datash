@@ -14,8 +14,6 @@
                 <p class="doc-names"><%= user.user_name %></p>
               <% end %>
             </div>
-            <h3 class="team-name"><%= team.team_name %></h3>
-            <p class="description"><%= team.description %></p>
             <div class="options">
               <%= link_to "/users/#{@user.id}/teams/#{team.id}", title: "delete team", method: :delete, data: { confirm: "You are about to delete #{team.team_name}. Are you sure?" }  do %>
                 <% render "shared/deleteButton" %>
@@ -24,6 +22,8 @@
                 <% render "shared/editButton" %>
               <% end %>
             </div>
+            <h3 class="team-name"><%= team.team_name %></h3>
+            <p class="description"><%= team.description %></p>
           </div>
         <% end %>
       <% end %>

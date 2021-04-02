@@ -105,7 +105,7 @@ p.team-show-doc-names {
   display: flex;
   padding-right: 50px;
 }
-p.user-list{ 
+p.user-list{
   font-family: Roboto;
   font-style: normal;
   font-weight: 200;
@@ -114,7 +114,7 @@ p.user-list{
   letter-spacing: -0.015em;
   color: white;
   display: flex;
-  padding-right: 50px; 
+  padding-right: 50px;
 }
 p.team-show-info {
   color: white;
@@ -175,4 +175,14 @@ p.team-show-info {
 
 .a.fas.fa-minus-circle {
   align-items: flex-end;
+}
+
+div.scroll {
+  background-color: #30363D;
+  width: 290px;
+  height: 120px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
 }
