@@ -30,20 +30,22 @@
                   <% render "shared/deleteButton" %>
                 <% end %>
               </div>
+              <div>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
+                  <% render "shared/editButton" %>
+                <% end %>
+              </div>
               <div class="d-flex justify-content-around">
                 <div class="team-info d-inline-block w-49 p-3 text-left">
                   <p class="team-show-info"><%= project.description %></p>
                 </div>
                 <div class="doc-names d-inline-block w-49 p-3 text-left">
-                  <% project.documents.last(3).each do |document| %>
-                    <p class="team-show-doc-names"><%= document.doc_file_name.truncate(14) %></p>
-                  <% end %>
+                  <div class="scroll" style="height: 160px;">
+                    <% project.documents.each do |document| %>
+                      <p class="team-show-doc-names"><%= document.doc_file_name.truncate(14) %></p>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
-                  <% render "shared/editButton" %>
-                <% end %>
               </div>
             </div>
           </div>
