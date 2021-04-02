@@ -12,7 +12,7 @@
         </div>
         <div class="doc-names d-inline-block w-49 p-3 text-left">
         <% @project.documents.last(3).each do |document| %>
-          <p class="team-show-doc-names"><%= document.doc_file_name %></p>
+          <p class="team-show-doc-names"><%= document.doc_file_name.truncate(14) %></p>
         <% end %>
         </div>
         <% @project.users.each do |user| %>

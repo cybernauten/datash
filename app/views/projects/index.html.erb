@@ -22,7 +22,7 @@
                 <p class="doc-names justify-content-between" style="padding-left: 80px;">no docs</p>
               <% else %>
                 <% project.documents.last(3).each do |document| %>
-                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name %></p>
+                  <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
                 <% end %>
               <% end %>
               <div>
