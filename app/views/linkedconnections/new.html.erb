@@ -5,6 +5,6 @@
     <%= f.association :users, label: "Who do you want to add/remove to/from Team:", label_method: :user_name %>
     <%= f.input :team_name %>
     <%= f.input :description %>
-    <%= f.submit %>
+    <%= f.submit data: { confirm: "Attention: If you selected users, that are already part of #{@team.team_name}, they will be removed. Are you sure you want to continue?" } %>
     <% end %>
 </div>

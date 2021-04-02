@@ -5,6 +5,6 @@
     <%= f.association :users, collection: @team.users, label: "Collaborators to change:", label_method: :user_name %>
     <%= f.input :project_name %>
     <%= f.input :description %>
-    <%= f.submit %>
+    <%= f.submit data: { confirm: "Attention: If you selected users, that are already part of #{@project.project_name}, they will be removed. Are you sure you want to continue?" } %>
     <% end %>
 </div>
