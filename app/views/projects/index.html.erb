@@ -17,12 +17,12 @@
               <% end %>
             </div>
               <div>
-                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" } do %>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" } do %>
                   <% render "shared/deleteButton" %>
                 <% end %>
               </div>
               <div>
-              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "edit project" do %>
                 <% render "shared/editButton" %>
               <% end %>
             </div>

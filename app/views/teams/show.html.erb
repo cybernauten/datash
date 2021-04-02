@@ -7,15 +7,15 @@
         <% render "shared/deleteButton" %>
       <% end %>
     </div>
-        <div class="user-list">
-        <h3>Collaborators at this team:</h3>
-        </br>
-          <% @team.users.each do |user| %>
-            <p><%= user.user_name %></p>
-          <% end %>
-        </div>
+      <div class="user-list">
+      <h3>Collaborators at this team:</h3>
+      </br>
+        <% @team.users.each do |user| %>
+          <p><%= user.user_name %></p>
+        <% end %>
+      </div>
       <div>
-        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new" do %>
+        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "edit project" do %>
           <% render "shared/editButton" %>
         <% end %>
       </div>
@@ -26,7 +26,7 @@
             <div class="card-team">
               <h3 class="project-name justify-content-between"><%= project.project_name%></h3>
               <div>
-                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
                   <% render "shared/deleteButton" %>
                 <% end %>
               </div>
