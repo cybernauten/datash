@@ -37,7 +37,7 @@
             <li><%= team.team_name %></li>
           <% end %>
           <% @documents.each do |document| %>
-            <li><%= document.file_name %></li>
+            <li><%= document.doc_file_name.truncate(31) %></li>
           <% end %>
           <% @projects.each do |project| %>
             <li><%= project.project_name %></li>
@@ -48,12 +48,8 @@
     <div id="timeline-content">
       <ul class="timeline">
         <% if @user.documents.present? %>
-          <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Edited <%= @user.documents.last.file_name %></h3>
-            <p>edited file size</p>
-          </li>
           <li class="event" data-date="<%= @user.documents.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Added <%= @user.documents.last.file_name %></h3>
+            <h3>Added <%= @user.documents.last.doc_file_name %></h3>
             <p>added to <%=  @user.documents.last.project.project_name %></p>
           </li>
         <% end %>
@@ -64,6 +60,10 @@
           </li>
         ​<% end %>
         <% if @user.teams.present? %>
+          <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+            <h3>Edited <%= @user.teams.order(:updated_at).last.team_name %></h3>
+            <p>edited team description</p>
+          </li>
           <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <h3>Joined <%= @user.teams.last.team_name %></h3>
             <p>This team has <%= @user.teams.last.users.count %> contributors</p> <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
