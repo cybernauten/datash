@@ -4,13 +4,16 @@
   <br>
   <div class="mb-5 mt-4">
     <div class="text-center float-left">
-      <p>Contributing to <span style="color: #7C61FF; font-size: 25px;"><%= @user.teams.count %></span> Teams</p>
+      <% team_count = @user.teams.count %>
+      <p>Contributing to <span style="color: #7C61FF; font-size: 25px;"><%= team_count %></span> <%= "Team".pluralize(team_count)%></p>
     </div>
     <div class="text-center float-left">
-      <p>Part of <span style="color: #7C61FF; font-size: 25px;"><%= @user.projects.count %></span> Projects</p>
+      <% proj_count = @user.projects.count %>
+      <p>Part of <span style="color: #7C61FF; font-size: 25px;"><%= proj_count %></span> <%= "Project".pluralize(proj_count)%></p>
     </div>
     <div class="text-center float-left">
-      <p>Access to <span style="color: #7C61FF; font-size: 25px;"><%= @user.documents.count %></span> Documents</p>
+      <% doc_count = @user.documents.count %>
+      <p>Access to <span style="color: #7C61FF; font-size: 25px;"><%= doc_count %></span> <%= "Document".pluralize(doc_count)%></p>
     </div>
   </div>
   ​
