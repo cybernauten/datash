@@ -150,3 +150,7 @@ li.event::before {
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
+.timeline h3 {
+  overflow-x: scroll;
+}
