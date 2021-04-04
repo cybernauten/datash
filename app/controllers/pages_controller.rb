@@ -15,8 +15,8 @@ class PagesController < ApplicationController
         OR teams.description ILIKE :query \
       "
       @teams = Team.where(sql_query2, query: "%#{params[:search][:query]}%")
-      sql_query3 = "documents.file_name ILIKE :query \
-        OR documents.file_type ILIKE :query \
+      sql_query3 = "documents.doc_file_name ILIKE :query \
+        OR documents.doc_content_type ILIKE :query \
       "
       @documents = Document.where(sql_query3, query: "%#{params[:search][:query]}%")
     end
