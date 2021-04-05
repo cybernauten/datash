@@ -4,13 +4,16 @@
   <br>
   <div class="mb-5 mt-4">
     <div class="text-center float-left">
-      <p>Contributing to <span style="color: #7C61FF; font-size: 25px;"><%= @user.teams.count %></span> Teams</p>
+      <% team_count = @user.teams.count %>
+      <p>Contributing to <span style="color: #7C61FF; font-size: 25px;"><%= team_count %></span> <%= "Team".pluralize(team_count)%></p>
     </div>
     <div class="text-center float-left">
-      <p>Part of <span style="color: #7C61FF; font-size: 25px;"><%= @user.projects.count %></span> Projects</p>
+      <% proj_count = @user.projects.count %>
+      <p>Part of <span style="color: #7C61FF; font-size: 25px;"><%= proj_count %></span> <%= "Project".pluralize(proj_count)%></p>
     </div>
     <div class="text-center float-left">
-      <p>Access to <span style="color: #7C61FF; font-size: 25px;"><%= @user.documents.count %></span> Documents</p>
+      <% doc_count = @user.documents.count %>
+      <p>Access to <span style="color: #7C61FF; font-size: 25px;"><%= doc_count %></span> <%= "Document".pluralize(doc_count)%></p>
     </div>
   </div>
   ​
@@ -37,7 +40,7 @@
             <li><%= team.team_name %></li>
           <% end %>
           <% @documents.each do |document| %>
-            <li><%= document.file_name %></li>
+            <li><%= document.doc_file_name.truncate(31) %></li>
           <% end %>
           <% @projects.each do |project| %>
             <li><%= project.project_name %></li>
@@ -48,12 +51,8 @@
     <div id="timeline-content">
       <ul class="timeline">
         <% if @user.documents.present? %>
-          <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Edited <%= @user.documents.last.file_name %></h3>
-            <p>edited file size</p>
-          </li>
           <li class="event" data-date="<%= @user.documents.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Added <%= @user.documents.last.file_name %></h3>
+            <h3>Added <%= @user.documents.last.doc_file_name %></h3>
             <p>added to <%=  @user.documents.last.project.project_name %></p>
           </li>
         <% end %>
@@ -65,8 +64,19 @@
         ​<% end %>
         <% if @user.teams.present? %>
           <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+            <h3>Edited <%= @user.teams.order(:updated_at).last.team_name %></h3>
+            <p>edited team description</p>
+          </li>
+          <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <h3>Joined <%= @user.teams.last.team_name %></h3>
-            <p>This team has <%= @user.teams.last.users.count %> contributors</p> <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
+            <p>This team has <%= @user.teams.last.users.count %>
+              <% if @user.teams.last.users.count == 1 %>
+                contributor
+              <% else %>
+                contributors
+              <% end %>
+            </p>
+            <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
           </li>
 <!--           <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <%# if @user.teams.last.previous_changes.present? %>
