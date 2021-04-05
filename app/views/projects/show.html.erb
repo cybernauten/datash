@@ -20,11 +20,15 @@
           <p class="team-show-info"><%= @project.description %></p>
         </div>
         <div class="doc-names d-inline-block w-49 p-3 text-left">
-            <div class="scroll" style="height: 185px;">
-        <% @project.documents.each do |document| %>
-          <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
-        <% end %>
-            </div>
+          <div class="scroll" style="height: 185px;">
+            <% @project.documents.each do |document| %>
+              <% if document.doc_file_name == nil %>
+                <p class="doc-names justify-content-between" style="padding-left: 80px;">Document can't be read</p>
+              <% else %>
+                <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
+              <% end %>
+            <% end %>
+          </div>
         </div>
         <% @project.users.each do |user| %>
           <p class="username"><%= user.user_name %></p>
