@@ -9,6 +9,10 @@
       <% end %>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 20023ce0ab7d42a03d54c3ba0c18bd93a901db0f
     <br>
     <br>
     <div class="user-list-container">
@@ -17,6 +21,7 @@
       <div class="user-list">
         <% @team.users.each do |user| %>
           <ol><p><%= user.user_name %></p></ol>   
+<<<<<<< HEAD
 =======
       <div class="user-list">
       <h3>Collaborators at this team:</h3>
@@ -24,6 +29,8 @@
         <% @team.users.each do |user| %>
           <p><%= user.user_name %></p>
 >>>>>>> 7197f2d63dac4286cd64c4f3cd29edb7bc44a9ff
+=======
+>>>>>>> 20023ce0ab7d42a03d54c3ba0c18bd93a901db0f
         <% end %>
       </div>
       <div>
@@ -34,12 +41,17 @@
     <% @user.projects.each do |project| %>
       <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <% if @team.id == project.team_id %>  
           <div class="team-cards-container d-flex w-100 mt-4">
 =======
         <% if @team.id == project.team_id %>
           <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
 >>>>>>> 7197f2d63dac4286cd64c4f3cd29edb7bc44a9ff
+=======
+        <% if @team.id == project.team_id %>  
+          <div class="team-cards-container d-flex w-100 mt-4">
+>>>>>>> 20023ce0ab7d42a03d54c3ba0c18bd93a901db0f
             <div class="card-team">
               <h3 class="project-name justify-content-between"><%= project.project_name%></h3>
               <div>
