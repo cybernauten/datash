@@ -8,7 +8,6 @@
         <% render "shared/deleteButton" %>
       <% end %>
     </div>
-
     <br>
     <br>
     <div class="user-list-container">
@@ -47,7 +46,11 @@
                 <div class="doc-names d-inline-block w-49 p-3 text-left">
                   <div class="scroll" style="height: 160px;">
                     <% project.documents.each do |document| %>
-                      <p class="team-show-doc-names"><%= document.doc_file_name.truncate(14) %></p>
+                      <% if document.doc_file_name == nil %>
+                        <p class="doc-names justify-content-between" style="padding-left: 80px;">Document can't be read</p>
+                      <% else %>
+                        <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>

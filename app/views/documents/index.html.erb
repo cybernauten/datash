@@ -6,9 +6,11 @@
 <div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
   <div class ="view title d-flex w-100 justify-content-center">
     <h2>DOCUMENTS</h2>
-    <%= link_to new_user_document_path do %>
-      <% render "shared/newButton" %>
-    <% end %>
+    <div style="position: absolute; right: 0; padding-right: 115px; padding-top: 7px;" title="add document">
+      <%= link_to new_user_document_path do %>
+        <% render "shared/newButton" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="documents-container w-100 mt-4">

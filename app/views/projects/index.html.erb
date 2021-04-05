@@ -28,15 +28,15 @@
             </div>
             <div class="team-info d-inline-block w-49 p-3 text-left">
               <p class="recent" style="padding-left: 80px;">Documents</p>
-              <% if project.documents.empty? %>
-                <p class="doc-names justify-content-between" style="padding-left: 80px;">no documents</p>
-              <% else %>
-                <div class="scroll">
-                  <% project.documents.each do |document| %>
+              <div class="scroll">
+                <% project.documents.each do |document| %>
+                  <% if document.doc_file_name == nil %>
+                    <p class="doc-names justify-content-between" style="padding-left: 80px;">Document can't be read</p>
+                  <% else %>
                     <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
                   <% end %>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
