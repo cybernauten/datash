@@ -3,15 +3,20 @@
     <%= render "shared/dashboard" %>
     <div class ="view title d-flex w-100 justify-content-center">
       <h2 class="header"><%= @team.team_name %></h2>
+      <br>
       <%= link_to "/users/#{@user.id}/teams/#{@team.id}", method: :delete, data: { confirm: "You are about to delete #{@team.team_name}. Are you sure?" }  do %>
         <% render "shared/deleteButton" %>
       <% end %>
     </div>
+
+    <br>
+    <br>
+    <div class="user-list-container">
+      <h3>Teammembers</h3>
+    </div>
       <div class="user-list">
-      <h3>Collaborators at this team:</h3>
-      </br>
         <% @team.users.each do |user| %>
-          <p><%= user.user_name %></p>
+          <ol><p><%= user.user_name %></p></ol>   
         <% end %>
       </div>
       <div>
@@ -21,8 +26,8 @@
       </div>
     <% @user.projects.each do |project| %>
       <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
-        <% if @team.id == project.team_id %>
-          <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
+        <% if @team.id == project.team_id %>  
+          <div class="team-cards-container d-flex w-100 mt-4">
             <div class="card-team">
               <h3 class="project-name justify-content-between"><%= project.project_name%></h3>
               <div>
