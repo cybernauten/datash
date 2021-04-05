@@ -1,11 +1,7 @@
 .float-left {
-    float:left;
-    width:33%; // or 33% for equal width independent of parent width
+    float: left;
+    width: 33%;
 }
-
-
-
-// @import url("https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800");
 
 body {
   background: #252827;
@@ -13,10 +9,6 @@ body {
 }
 
 // leave these commented out because these affect the dashboard-leiste titles...
-
-// p {
-//   font-weight: 300;
-// }
 
 // a {
 //   color: #6c6d6d;
@@ -75,11 +67,11 @@ ul.timeline {
   line-height: 1.4em;
   font-size: 1.03em;
   padding: 50px;
-  list-style: none;
+  list-style: inherit;
   text-align: left;
   font-weight: 100;
   max-width: 30%;
-  overflow: visible !important;
+  overflow: visible !important; //keep this for dates
 
   h1 {
    font-family: Roboto;
@@ -157,4 +149,8 @@ li.event::before {
 }
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+.timeline h3 {
+  overflow-x: scroll;
 }

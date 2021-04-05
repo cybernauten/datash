@@ -5,30 +5,31 @@
     <div class="card-team">
       <h3 class="project-name justify-content-between"><%= @project.project_name %></h3>
       <div class="d-flex justify-content-around">
+          <div>
+            <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", method: :delete, data: { confirm: "You are about to delete #{@project.project_name}. Are you sure?" }  do %>
+              <% render "shared/deleteButton" %>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new" do %>
+              <% render "shared/editButton" %>
+            <% end %>
+          </div>
         <div class="team-info d-inline-block w-49 p-3 text-left">
           <p class="team-show-info"><%= @project.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %></p>
-          </br>
           <p class="team-show-info"><%= @project.description %></p>
         </div>
         <div class="doc-names d-inline-block w-49 p-3 text-left">
+            <div class="scroll" style="height: 185px;">
         <% @project.documents.each do |document| %>
-          <p class="team-show-doc-names"><%= document.file_name.last(3) %></p>
+          <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
         <% end %>
+            </div>
         </div>
         <% @project.users.each do |user| %>
           <p class="username"><%= user.user_name %></p>
           <% end %>
       </div>
-      <div>
-        <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", method: :delete, data: { confirm: "You are about to delete #{@project.project_name}. Are you sure?" }  do %>
-          <% render "shared/deleteButton" %>
-        <% end %>
-      </div> 
-      <div>
-        <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new" do %>
-          <% render "shared/editButton" %>
-        <% end %>
-      </div> 
     </div>
   </div>
 </div>
