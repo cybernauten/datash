@@ -33,14 +33,31 @@
     <% if params[:search].present? %>
       <div id="timeline-content">
         <ul class="timeline">
+          <p><strong>Teams</strong></p>
           <% @teams.each do |team| %>
-            <li><%= team.team_name %></li>
+            <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
+              <li><%= team.team_name %></li>
+            <% end %>
           <% end %>
+          <br>
+          <p><strong>Documents</strong></p>
           <% @documents.each do |document| %>
-            <li><%= document.doc_file_name.truncate(31) %></li>
+            <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
+              <li>
+                <% if document.doc_file_name == nil %>
+                  <%= document.file_name.truncate(31) %>
+                <% else %>
+                  <%= document.doc_file_name.truncate(31) %>
+                <% end %>
+              </li>
+            <% end %>
           <% end %>
+          <br>
+          <p><strong>Projects</strong></p>
           <% @projects.each do |project| %>
-            <li><%= project.project_name %></li>
+            <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}" do %>
+              <li><%= project.project_name %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>
