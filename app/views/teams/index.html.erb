@@ -8,26 +8,27 @@
       <% @user.teams.each do |team| %>
         <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
           <div class="card-team">
-            <div style="background-image: url('<%= team.avatar_url %>'); height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-bottom: 27px;">
+            <img src="<%= team.avatar_url %>" class="imagebox" style="height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-right: 30px;">
+            <div class="member-list">
               <p class="recent">Members</p>
               <% team.users.each do |user| %>
                 <p class="doc-names"><%= user.user_name %></p>
               <% end %>
-            </div>
-            <div class="options">
-              <%= link_to "/users/#{@user.id}/teams/#{team.id}", title: "delete team", method: :delete, data: { confirm: "You are about to delete #{team.team_name}. Are you sure?" }  do %>
-                <% render "shared/deleteButton" %>
-              <% end %>
-              <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new", title: "edit team" do %>
+              <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new", title: "Add or remove teammember" do %>
                 <% render "shared/editButton" %>
               <% end %>
             </div>
-            <h3 class="team-name"><%= team.team_name %></h3>
-            <p class="description"><%= team.description %></p>
+            <div class="team-overview">
+              <h3 class="team-name"><%= team.team_name %></h3>
+              <p class="description"><%= team.description %></p>
+              <%= link_to "/users/#{@user.id}/teams/#{team.id}", title: "Delete this team", method: :delete, data: { confirm: "You are about to delete #{team.team_name}. Are you sure?" }  do %>
+                <% render "shared/deleteButton" %>
+              <% end %> 
+            </div>
           </div>
         <% end %>
       <% end %>
-      <div class="new-team" title="Add new team">
+      <div class="new-team" title="Create new team">
         <%= link_to "/users/#{@user.id}/teams/new" do %>
           <% render "shared/newButton" %>
         <% end %>
