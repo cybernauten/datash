@@ -8,8 +8,8 @@
   <div style="padding:70px">
   <%= form_for ([@user, @document]), html: { multipart: true } do |f| %>
     <div class="form-group">
-      <%= f.label :file_name, "Document name" %>
-      <%= f.text_field :file_name, class: 'form-control' %>
+      <%= f.label :doc_file_name, "Document name" %>
+      <%= f.text_field :doc_file_name, class: 'form-control' %>
     </div>
 
     <div class="form-group">

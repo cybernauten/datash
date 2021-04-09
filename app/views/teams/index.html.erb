@@ -1,18 +1,23 @@
 <div style="height:max;">
-    <%= render "shared/dashboard" %>
+  <%= render "shared/dashboard" %>
   <div class="team-cards-container">
     <div class="Inner-Container">
       <div class ="view-title d-flex w-100 justify-content-center">
         <h2 class="header">TEAMS</h2>
       </div>
+      <div class="new-team" title="Create new team">
+        <%= link_to "/users/#{@user.id}/teams/new" do %>
+          <% render "shared/newButton" %>
+        <% end %>
+      </div>
       <% @user.teams.each do |team| %>
         <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
           <div class="card-team">
             <img src="<%= team.avatar_url %>" class="imagebox" style="height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-right: 30px;">
-            <div class="member-list">
+            <div class="member-list-team">
               <p class="recent">Members</p>
               <% team.users.each do |user| %>
-                <p class="doc-names"><%= user.user_name %></p>
+                <p class="user-names"><%= user.user_name %></p>
               <% end %>
               <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new", title: "Add or remove teammember" do %>
                 <% render "shared/editButton" %>
@@ -28,11 +33,6 @@
           </div>
         <% end %>
       <% end %>
-      <div class="new-team" title="Create new team">
-        <%= link_to "/users/#{@user.id}/teams/new" do %>
-          <% render "shared/newButton" %>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
