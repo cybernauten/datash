@@ -46,11 +46,6 @@ ActiveRecord::Schema.define(version: 2021_03_11_103321) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "file_name"
-    t.string "file_type"
-    t.date "creation_date"
-    t.date "update_date"
-    t.integer "file_size"
     t.bigint "project_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

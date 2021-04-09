@@ -105,7 +105,7 @@
             </p>
             <p>This is your <em><strong><%= @user.teams.count.ordinalize %></strong></em> team!</p>
           </li>
-<!--           <li class="event" data-date="<%= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
+<!--           <li class="event" data-date="<%#= @user.documents.last.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
             <%# if @user.teams.last.previous_changes.present? %>
               <h3>The <%#=  @user.teams.last.order(:updated_at).last.team_name %>was edited</h3>
               <p>The <%#=  @user.teams.last.previous_changes.first[0] %>was changed</p>

@@ -32,12 +32,20 @@
   flex-wrap: wrap;
 }
 
-.member-list {
+
+.member-list-team {
   display: flex;
   flex-direction: column;
   padding-right: 75px;
   padding-top: 30px;
   align-items: flex-start;
+}
+
+
+.user-list {
+  margin-left: 15%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .imagebox {
@@ -50,6 +58,108 @@
   flex-direction: column;
   align-items: flex-start;
   padding-left: 30px;
+}
+
+.card-project {
+  margin: 10px;
+  width: 500px;
+  height: 300px;
+  // overflow: scroll;
+  text-align: center;
+  background: #30363D;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-overview { 
+  display: flex;
+  flex-direction: column;
+  margin-left: 35px;
+  margin-top: 25px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  max-width: 40%;
+  max-height: 45%;
+  align-items: flex-start;
+}
+
+.member-list-project {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-top: 25px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  max-width: 40%;
+  max-height: 45%;
+  align-items: flex-start;
+}
+
+.doc-names-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-height: 30%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-names {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+p.user-names {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.new-team {
+  display: flex;
+  justify-content: center;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.doc-names {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+
+.scroll-team-show {
+  background-color: #30363D;
+  width: 90%;
+  max-height: 30%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  align-items: center;
+}
+
+p.doc-names {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: -0.015em;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
 .edit-button {
@@ -79,14 +189,10 @@ p.description {
   line-height: 28px;
   display: flex;
   align-items: center;
-  // text-align: center;
   letter-spacing: -0.015em;
   margin-bottom: 8px;
 }
 
-.new-team {
-  align-items: center;
-}
 
 h3.project-name {
   font-family: Roboto;
@@ -94,9 +200,7 @@ h3.project-name {
   font-weight: 300;
   font-size: 30px;
   line-height: 35px;
-  display: center;
-  padding-top: 10px;
-  text-align: center;
+  text-align: left;
   letter-spacing: -0.015em;
   color: #3FB951;
 }
@@ -118,16 +222,6 @@ p.recent {
   display: flex;
 }
 
-p.doc-names {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 24px;
-  line-height: 20px;
-  letter-spacing: -0.015em;
-  color: white;
-  display: flex;
-}
 
 a {
   text-decoration: none !important;
@@ -169,42 +263,23 @@ p.team-show-info {
   font-size: 24px;
   line-height: 28px;
   display: flex;
-  align-items: center;
+  text-align: left;
   letter-spacing: -0.015em;
-  margin-left: 30px;
+  margin-bottom: 8px;;
 }
 
-.new-proj-input {
-  -webkit-text-fill-color: white;
-}
-
-
-.new-team {
-  margin-left: 18%;
-}
-
-.user-list-container {
+h3.subheader {
   margin-left: 15%;
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
 }
 
-.user-list {
-  margin-left: 15%;
-  display: flex;
-  justify-content: center;
+.new-proj-input {
+  -webkit-text-fill-color: white;
 }
 
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-basis: content;
-  margin-right: 5px;
-}
-
-div.scroll {
+.scroll {
   background-color: #30363D;
   width: 290px;
   height: 120px;
