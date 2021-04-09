@@ -36,30 +36,40 @@
     <% if params[:search].present? %>
       <div id="timeline-content">
         <ul class="timeline">
+          <p><%= "Sorry, no results matching your criteria" if @searchable_teams.empty? && @searchable_projects.empty? && @searchable_documents.empty? %></p>
+          <% if @searchable_teams.empty? %>
+          <% else %>
           <p><strong>Teams</strong></p>
-          <% @teams.each do |team| %>
+          <% @searchable_teams.each do |team| %>
             <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
               <li><%= team.team_name %></li>
             <% end %>
           <% end %>
           <br>
+          <% end %>
+          <% if @searchable_documents.empty? %>
+          <% else %>
           <p><strong>Documents</strong></p>
-          <% @documents.each do |document| %>
+          <% @searchable_documents.each do |document| %>
             <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
               <li>
                 <% if document.doc_file_name == nil %>
-                  <%= document.file_name.truncate(31) %>
+                  <%= document.file_name.truncate(30) %>
                 <% else %>
-                  <%= document.doc_file_name.truncate(31) %>
+                  <%= document.doc_file_name.truncate(30) %>
                 <% end %>
               </li>
             <% end %>
           <% end %>
           <br>
+          <% end %>
+          <% if @searchable_projects.empty? %>
+          <% else %>
           <p><strong>Projects</strong></p>
-          <% @projects.each do |project| %>
-            <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}" do %>
-              <li><%= project.project_name %></li>
+            <% @searchable_projects.each do |project| %>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}" do %>
+                <li><%= project.project_name %></li>
+              <% end %>
             <% end %>
           <% end %>
         </ul>
@@ -69,13 +79,13 @@
       <ul class="timeline">
         <% if @user.documents.present? %>
           <li class="event" data-date="<%= @user.documents.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Added <%= @user.documents.last.doc_file_name %></h3>
+            <h3>Added File <%= @user.documents.last.doc_file_name %></h3>
             <p>added to <%=  @user.documents.last.project.project_name %></p>
           </li>
         <% end %>
         <% if @user.projects.present? %>
           <li class="event" id="date" data-date="<%= @user.projects.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Created <%= @user.projects.last.project_name %></h3>
+            <h3>Created Project <%= @user.projects.last.project_name %></h3>
             <p>assigned to <%= Team.find_by(params[:id]).team_name %></p>
           </li>
         ​<% end %>
@@ -85,7 +95,7 @@
             <p>edited team description</p>
           </li>
           <li class="event" data-date="<%= @user.teams.last.created_at.to_time.strftime('%b-%d-%Y at %l:%M') %>">
-            <h3>Joined <%= @user.teams.last.team_name %></h3>
+            <h3>Joined Team <%= @user.teams.last.team_name %></h3>
             <p>This team has <%= @user.teams.last.users.count %>
               <% if @user.teams.last.users.count == 1 %>
                 contributor
@@ -106,4 +116,5 @@
     </div>
     <% end %>
   <% end %>
+  <%# raise %>
 </div>
