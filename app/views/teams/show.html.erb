@@ -11,13 +11,13 @@
           <ol><p><%= user.user_name %></p></ol>
         <% end %>
         <div class="edit-button">
-          <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "edit teammembers" do %>
+          <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "Edit teammembers" do %>
             <% render "shared/editButton" %>
           <% end %>
         </div>
       </div>
       <div class="new-button">
-        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/new", title: "add project" do %>
+        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/new", title: "Add project" do %>
           <% render "shared/newButton" %>
         <% end %>
       </div>
@@ -54,12 +54,13 @@
                         </p>
                       <% end %>
                     <% end %>
-                  </div>
+                  <% end %>
                 </div>
               </div>
-            <% end %>
+            </div>
           <% end %>
         <% end %>
+      <% end %>
     </div>
   </div>
 </div>

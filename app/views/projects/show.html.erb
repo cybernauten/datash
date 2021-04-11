@@ -1,29 +1,32 @@
-<%= render "shared/dashboard" %>
-
-<div style="margin-left:25%; margin-right: 6%; padding:86px 28px;height:1000px;">
-  <div class="team-cards-container d-flex w-100 mt-4 justify-content-around">
-    <div class="card-team">
-      <h3 class="project-name justify-content-between"><%= @project.project_name %></h3>
-      <div class="d-flex justify-content-around">
-          <div>
-            <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", method: :delete, data: { confirm: "You are about to delete #{@project.project_name}. Are you sure?" }  do %>
-              <% render "shared/deleteButton" %>
-            <% end %>
-          </div>
-          <div>
-            <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new" do %>
-              <% render "shared/editButton" %>
-            <% end %>
-          </div>
-        <div class="team-info d-inline-block w-49 p-3 text-left">
-          <p class="team-show-info"><%= @project.updated_at.to_time.strftime('%b-%d-%Y at %l:%M') %></p>
+<div style="height:max;">
+  <%= render "shared/dashboard" %>
+  <div class="team-cards-container">
+    <div class="Inner-Container">
+      <div class ="view title d-flex w-100 justify-content-center">
+        <h2 class="header"><%= @project.project_name %></h2>
+      </div>
+      <div class="card-project">
+        <div class="project-overview">
+          <h3 class="project-name"><%= @project.project_name%></h3>
           <p class="team-show-info"><%= @project.description %></p>
+          <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}", title: "Delete project", method: :delete, data: { confirm: "You are about to delete #{@project.project_name}. Are you sure?" }  do %>
+            <% render "shared/deleteButton" %>
+          <% end %>
         </div>
-        <div class="doc-names d-inline-block w-49 p-3 text-left">
-          <div class="scroll" style="height: 185px;">
+        <div class="member-list-project">
+          <p class="recent">Members</p>
+          <% @project.users.each do |user| %>
+            <p class="user-names"><%= user.user_name %></p>
+          <% end %>
+          <%= link_to "/users/#{@user.id}/teams/#{@project.team_id}/projects/#{@project.id}/assignments/new", title: "Edit project" do %>
+            <% render "shared/editButton" %>
+          <% end %>
+        </div>
+        <div class="doc-names-project">
+          <div class="scroll-team-show" style="height: 160px;">
             <% @project.documents.each do |document| %>
               <% if document.doc_file_name == nil %>
-                <p class="doc-names justify-content-between" style="padding-left: 80px;">Document can't be read</p>
+                <p class="doc-names">Document can't be read</p>
               <% else %>
                 <p class="doc-names justify-content-between" style="padding-left: 80px;">
                   <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
@@ -34,9 +37,6 @@
             <% end %>
           </div>
         </div>
-        <% @project.users.each do |user| %>
-          <p class="username"><%= user.user_name %></p>
-          <% end %>
       </div>
     </div>
   </div>
