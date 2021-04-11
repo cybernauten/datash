@@ -1,52 +1,49 @@
-<%= render "shared/dashboard" %>
-
-<div style="margin-left:25%; margin-right: 6%; padding:86px 28px; height:1000px;">
-  <div class ="view title d-flex w-100 justify-content-center">
-    <h2>PROJECTS</h2>
-  </div>
-  <div class="team-cards-container d-flex w-100">
-    <% @user.projects.each do |project| %>
-      <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}" do %>
-        <div class="card-team">
-          <h3 class="project-name"><%= project.project_name.upcase %></h3>
-          <p class="description justify-content-between"><%= project.description %></p>
-          <div class="d-flex justify-content-around">
-            <div class="doc-names d-inline-block w-49 p-3 text-left">
-              <% project.users.each do |user| %>
-                <p class="username"><%= user.user_name %></p>
+<div style="height:max;">
+  <%= render "shared/dashboard" %>
+  <div class="team-cards-container">
+    <div class="Inner-Container">
+      <div class ="view title d-flex w-100 justify-content-center">
+        <h2 class="header">PROJECTS</h2>
+      </div>
+      <div class="new-project" title="Add new project">
+        <%= link_to "/users/#{@user.id}/projects/new" do %>
+          <% render "shared/newButton" %>
+        <% end %>
+      </div>
+      <% @user.projects.each do |project| %>
+        <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}" do %> 
+          <div class="card-project">
+            <div class="project-overview">
+              <h3 class="project-name"><%= project.project_name%></h3>
+              <p class="team-show-info"><%= project.description %></p>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "Delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
+                <% render "shared/deleteButton" %>
               <% end %>
             </div>
-              <div>
-                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" } do %>
-                  <% render "shared/deleteButton" %>
-                <% end %>
-              </div>
-              <div>
-              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "edit project" do %>
+            <div class="member-list-project">
+              <p class="recent">Members</p>
+              <% project.users.each do |user| %>
+                <p class="user-names"><%= user.user_name %></p>
+              <% end %>
+              <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "Edit project" do %>
                 <% render "shared/editButton" %>
               <% end %>
             </div>
-            <div class="team-info d-inline-block w-49 p-3 text-left">
-              <p class="recent" style="padding-left: 80px;">Documents</p>
-              <div class="scroll">
+            <div class="doc-names-project">
+              <div class="scroll-team-show" style="height: 160px;">
                 <% project.documents.each do |document| %>
                   <% if document.doc_file_name == nil %>
-                    <p class="doc-names justify-content-between" style="padding-left: 80px;">Document can't be read</p>
+                    <p class="doc-names">Document can't be read</p>
                   <% else %>
-                    <p class="doc-names justify-content-between" style="padding-left: 80px;"><%= document.doc_file_name.truncate(14) %></p>
+                    <p class="doc-names"><%= document.doc_file_name.truncate(14) %></p>
                   <% end %>
                 <% end %>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-
-  <div>
-  <%= link_to "/users/#{@user.id}/projects/new" do %>
-    <% render "shared/newButton" %>
-    <% end %>
+    </div>
   </div>
 </div>
+
