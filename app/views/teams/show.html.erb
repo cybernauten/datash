@@ -21,38 +21,37 @@
           <% render "shared/newButton" %>
         <% end %>
       </div>
-        <% @user.projects.each do |project| %>
-          <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
-            <% if @team.id == project.team_id %>
-              <div class="card-project">
-                <div class="project-overview">
-                  <h3 class="project-name"><%= project.project_name%></h3>
-                  <p class="team-show-info"><%= project.description %></p>
-                  <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
-                    <% render "shared/deleteButton" %>
-                  <% end %>
-                </div>
-                <div class="member-list-project">
-                  <p class="recent">Members</p>
-                  <% project.users.each do |user| %>
-                    <p class="user-names"><%= user.user_name %></p>
-                  <% end %>
-                  <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "edit projectmembers" do %>
-                    <% render "shared/editButton" %>
-                  <% end %>
-                </div>
-                <div class="doc-names-project">
-                  <div class="scroll-team-show" style="height: 160px;">
-                    <% project.documents.each do |document| %>
-                      <% if document.doc_file_name == nil %>
-                        <p class="doc-names">Document can't be read</p>
-                      <% else %>
-                        <p class="doc-names">
-                          <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
-                            <%= document.doc_file_name.truncate(20) %>
-                          <% end %>
-                        </p>
-                      <% end %>
+      <% @user.projects.each do |project| %>
+        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
+          <% if @team.id == project.team_id %>
+            <div class="card-project">
+              <div class="project-overview">
+                <h3 class="project-name"><%= project.project_name%></h3>
+                <p class="team-show-info"><%= project.description %></p>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
+                  <% render "shared/deleteButton" %>
+                <% end %>
+              </div>
+              <div class="member-list-project">
+                <p class="recent">Members</p>
+                <% project.users.each do |user| %>
+                  <p class="user-names"><%= user.user_name %></p>
+                <% end %>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "edit projectmembers" do %>
+                  <% render "shared/editButton" %>
+                <% end %>
+              </div>
+              <div class="doc-names-project">
+                <div class="scroll-team-show" style="height: 160px;">
+                  <% project.documents.each do |document| %>
+                    <% if document.doc_file_name == nil %>
+                      <p class="doc-names">Document can't be read</p>
+                    <% else %>
+                      <p class="doc-names">
+                        <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
+                          <%= document.doc_file_name.truncate(20) %>
+                        <% end %>
+                      </p>
                     <% end %>
                   <% end %>
                 </div>
