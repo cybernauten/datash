@@ -19,7 +19,7 @@
               <% team.users.each do |user| %>
                 <p class="user-names"><%= user.user_name %></p>
               <% end %>
-              <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new", title: "Add or remove teammember" do %>
+              <%= link_to "/users/#{@user.id}/teams/#{team.id}/linkedconnections/new", title: "Edit Team" do %>
                 <% render "shared/editButton" %>
               <% end %>
             </div>
