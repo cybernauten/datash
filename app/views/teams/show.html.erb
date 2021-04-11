@@ -8,7 +8,7 @@
       <h3 class="subheader">Teammembers</h3>
       <div class="user-list">
         <% @team.users.each do |user| %>
-          <ol><p><%= user.user_name %></p></ol>   
+          <ol><p><%= user.user_name %></p></ol>
         <% end %>
         <div class="edit-button">
           <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "Edit teammembers" do %>
@@ -23,12 +23,12 @@
       </div>
       <% @user.projects.each do |project| %>
         <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
-          <% if @team.id == project.team_id %>  
+          <% if @team.id == project.team_id %>
             <div class="card-project">
               <div class="project-overview">
                 <h3 class="project-name"><%= project.project_name%></h3>
                 <p class="team-show-info"><%= project.description %></p>
-                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "Delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}", title: "delete project", method: :delete, data: { confirm: "You are about to delete #{project.project_name}. Are you sure?" }  do %>
                   <% render "shared/deleteButton" %>
                 <% end %>
               </div>
@@ -37,7 +37,7 @@
                 <% project.users.each do |user| %>
                   <p class="user-names"><%= user.user_name %></p>
                 <% end %>
-                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "Edit project" do %>
+                <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "edit projectmembers" do %>
                   <% render "shared/editButton" %>
                 <% end %>
               </div>
@@ -47,7 +47,11 @@
                     <% if document.doc_file_name == nil %>
                       <p class="doc-names">Document can't be read</p>
                     <% else %>
-                      <p class="doc-names"><%= document.doc_file_name.truncate(14) %></p>
+                      <p class="doc-names">
+                        <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
+                          <%= document.doc_file_name.truncate(20) %>
+                        <% end %>
+                      </p>
                     <% end %>
                   <% end %>
                 </div>

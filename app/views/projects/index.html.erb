@@ -35,7 +35,11 @@
                   <% if document.doc_file_name == nil %>
                     <p class="doc-names">Document can't be read</p>
                   <% else %>
-                    <p class="doc-names"><%= document.doc_file_name.truncate(14) %></p>
+                    <p class="doc-names justify-content-between" style="padding-left: 80px;">
+                      <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
+                        <%= document.doc_file_name.truncate(14) %>
+                      <% end %>
+                    </p>
                   <% end %>
                 <% end %>
               </div>
