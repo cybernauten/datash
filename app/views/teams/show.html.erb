@@ -8,7 +8,7 @@
       <h3 class="subheader">Teammembers</h3>
       <div class="user-list">
         <% @team.users.each do |user| %>
-          <ol><p><%= user.user_name %></p></ol>   
+          <ol><p><%= user.user_name %></p></ol>
         <% end %>
         <div class="edit-button">
           <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "edit teammembers" do %>
@@ -23,7 +23,7 @@
       </div>
         <% @user.projects.each do |project| %>
           <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/#{project.id}" do %>
-            <% if @team.id == project.team_id %>  
+            <% if @team.id == project.team_id %>
               <div class="card-project">
                 <div class="project-overview">
                   <h3 class="project-name"><%= project.project_name%></h3>
@@ -47,7 +47,11 @@
                       <% if document.doc_file_name == nil %>
                         <p class="doc-names">Document can't be read</p>
                       <% else %>
-                        <p class="doc-names"><%= document.doc_file_name.truncate(14) %></p>
+                        <p class="doc-names">
+                          <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
+                            <%= document.doc_file_name.truncate(20) %>
+                          <% end %>
+                        </p>
                       <% end %>
                     <% end %>
                   </div>
