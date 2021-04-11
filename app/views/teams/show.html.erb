@@ -10,14 +10,14 @@
         <% @team.users.each do |user| %>
           <ol><p><%= user.user_name %></p></ol>   
         <% end %>
-        <div class="edit">
-          <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "edit project" do %>
+        <div class="edit-button">
+          <%= link_to "/users/#{@user.id}/teams/#{@team.id}/linkedconnections/new", title: "edit teammembers" do %>
             <% render "shared/editButton" %>
           <% end %>
         </div>
       </div>
-      <div>
-        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/new" do %>
+      <div class="new-button">
+        <%= link_to "/users/#{@user.id}/teams/#{@team.id}/projects/new", title: "add project" do %>
           <% render "shared/newButton" %>
         <% end %>
       </div>
@@ -37,7 +37,7 @@
                   <% project.users.each do |user| %>
                     <p class="user-names"><%= user.user_name %></p>
                   <% end %>
-                  <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new" do %>
+                  <%= link_to "/users/#{@user.id}/teams/#{project.team_id}/projects/#{project.id}/assignments/new", title: "edit projectmembers" do %>
                     <% render "shared/editButton" %>
                   <% end %>
                 </div>
