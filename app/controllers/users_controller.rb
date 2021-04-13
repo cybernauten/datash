@@ -14,14 +14,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    authorize @user
+    #authorize @user
   end
 
   def update
     @user = current_user
-    authorize @user
+    #authorize @user
     if @user.update(user_params)
-      redirect_to user_path(@user)
+      redirect_to "/users/#{current_user.id}/recent", :notice => "Profile updated"
     else
       render :edit
     end

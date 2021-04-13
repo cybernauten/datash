@@ -66,12 +66,26 @@
   flex-direction: column;
   align-items: flex-start;
   padding-left: 30px;
+  position: absolute;
+  margin-top: 177px;
 }
 
 .card-project {
   margin: 10px;
   width: 500px;
   height: 300px;
+  // overflow: scroll;
+  text-align: center;
+  background: #30363D;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-project-show {
+  margin: 10px;
+  width: 500px;
+  height: auto;
   // overflow: scroll;
   text-align: center;
   background: #30363D;
@@ -155,11 +169,10 @@ p.user-names {
   min-width: 0;
 }
 
-
 .scroll-team-show {
   background-color: #30363D;
   width: 90%;
-  max-height: 30%;
+  //max-height: 30%;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
@@ -236,6 +249,7 @@ p.recent {
 
 a {
   text-decoration: none !important;
+  
 }
 
 .p-5 {
@@ -276,7 +290,7 @@ p.team-show-info {
   display: flex;
   text-align: left;
   letter-spacing: -0.015em;
-  margin-bottom: 8px;;
+  margin-bottom: 8px;
 }
 
 h3.subheader {

@@ -18,7 +18,7 @@
         <%= @user.email.split('@')[0] %>
       <% end %>
     </li>
-    <li class="db-role">#{role}</li>
+    <%# <li class="db-role">#{role}</li> %>
     <br>
 
     <li><%= link_to "Recent", "/users/#{current_user.id}/recent"%></li>

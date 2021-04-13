@@ -49,7 +49,7 @@
                     <% else %>
                       <p class="doc-names">
                         <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
-                          <%= document.doc_file_name.truncate(20) %>
+                          <%= document.doc_file_name.truncate(25) %>
                         <% end %>
                       </p>
                     <% end %>

@@ -13,7 +13,7 @@
       <% @user.teams.each do |team| %>
         <%= link_to "/users/#{@user.id}/teams/#{team.id}" do %>
           <div class="card-team">
-            <img src="<%= team.avatar_url %>" class="imagebox" style="height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-right: 30px;">
+            <img src="<%= team.avatar_url %>"class="imagebox" style="height: 125px; width: 125px; background-size: cover; border-radius: 50%; border: black 3px solid; margin-left: 30px; margin-top: 30px; margin-right: 30px;">
             <div class="member-list-team">
               <p class="recent">Members</p>
               <% team.users.each do |user| %>
