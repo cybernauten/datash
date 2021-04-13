@@ -1,6 +1,6 @@
-<div class="sign-in-box w-50 mx-auto">
+<div class="sign-in-box w-50 mx-auto h-auto">
   <h2 style="color: #378BFC"><center>DATASH your data management</center></h2>
-  <div class="edit-user-container mt-4 mb-5" style="color: #ffffff; background: #30363D; border: 1px solid white; box-sizing: border-box; padding: 70px">
+  <div class="edit-user-container mt-4 mb-5 h-auto" style="color: #ffffff; background: #30363D; border: 1px solid white; box-sizing: border-box; padding: 60px">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="col-12">
         <p class="sign-up-header">Log in to your account</p>
@@ -16,7 +16,7 @@
 
       <div class="form-actions pl-1">
         <%= f.button :submit, "Log in", class: "btn-blue m-2" %>
-        <%= f.button :submit, "Register", class: "btn-white m-2" %>
+        <%= link_to "Register", new_user_registration_path, class: "btn-white m-2" %>
       </div>
     <% end %>
 

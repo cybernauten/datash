@@ -30,14 +30,14 @@
               <% end %>
             </div>
             <div class="doc-names-project">
-              <div class="scroll-team-show" style="height: 160px;">
+              <div class="scroll-team-show">
                 <% project.documents.each do |document| %>
                   <% if document.doc_file_name == nil %>
                     <p class="doc-names">Document can't be read</p>
                   <% else %>
-                    <p class="doc-names justify-content-between" style="padding-left: 80px;">
+                    <p class="doc-names justify-content-between">
                       <%= link_to "/users/#{@user.id}/documents/#{document.id}" do %>
-                        <%= document.doc_file_name.truncate(14) %>
+                        <%= document.doc_file_name.truncate(25) %>
                       <% end %>
                     </p>
                   <% end %>
